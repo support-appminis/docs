@@ -11,7 +11,17 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "App Builder"
+        "tab": "App Builder",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "index",
+              "quickstart",
+              "development"
+            ]
+          }
+        ]
       },
       {
         "tab": "App Dashboard",
