@@ -32,7 +32,7 @@
             ]
           },
           {
-            "group": "Customization",
+            "group": "Quản lý bán hàng",
             "pages": [
               "sale-management/order-management",
               "essentials/navigation"
