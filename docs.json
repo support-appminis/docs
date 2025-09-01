@@ -34,7 +34,7 @@
           {
             "group": "Customization",
             "pages": [
-              "essentials/settings",
+              "sale-management/order-management",
               "essentials/navigation"
             ]
           },
