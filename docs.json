@@ -35,7 +35,8 @@
             "group": "Quản lý bán hàng",
             "pages": [
               "sale-management/order-management",
-              "sale-management/product-management"
+              "sale-management/product-management",
+              "sale-management/inventory-management"
             ]
           },
           {
