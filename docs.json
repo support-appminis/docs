@@ -42,10 +42,9 @@
           {
             "group": "Quản lý người dùng",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "users-management/customers-management",
+              "users-management/role-management",
+              "users-management/staff-management"
             ]
           },
           {
