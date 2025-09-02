@@ -22,7 +22,7 @@
             ]
           },
           {
-            "group": "Tạo tài khoản & Đăng nhập",
+            "group": "Tài khoản & Đăng nhập",
             "pages": [
               "app-builder/authentication/register-login",
               "app-builder/authentication/reset-account",
