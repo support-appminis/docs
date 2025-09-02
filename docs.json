@@ -36,7 +36,7 @@
             "pages": [
               {
                 "group": "Quản lý sản phẩm",
-                "icon": "<ArrowUpLeft />",
+                "icon": "barcode",
                 "pages": [
                   "sale-management/product-management/products-management",
                   "sale-management/product-management/categories-management",
