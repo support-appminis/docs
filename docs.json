@@ -61,8 +61,8 @@
             "group": "Quản lý người dùng",
             "pages": [
               "users-management/customers-management",
-              "users-management/role-management",
-              "users-management/staff-management"
+              "users-management/staff-management",
+              "users-management/role-management"
             ]
           },
           {
