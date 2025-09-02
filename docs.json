@@ -48,8 +48,10 @@
                   "app-builder/builder/components/banners",
                   "app-builder/builder/components/categories",
                   "app-builder/builder/components/products",
-                  "app-builder/builder/components/categories",
-                  "app-builder/builder/components/categories"
+                  "app-builder/builder/components/cta",
+                  "app-builder/builder/components/news",
+                  "app-builder/builder/components/flashsale",
+                  "app-builder/builder/components/support"
                 ]
               }
             ]
