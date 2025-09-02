@@ -25,8 +25,8 @@
             "group": "Mobile & Mini App Builder",
             "pages": [
               "app-builder/builder/general-settings",
-              "app-builder/builder/navigation-bar",
-              "app-builder/builder/drag-drop-component",
+              "app-builder/builder/design-app/navigation-bar",
+              "app-builder/builder/design-app/drag-drop-component",
               {
                 "group": "Page Builder",
                 "pages": [
