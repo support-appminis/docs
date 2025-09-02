@@ -56,6 +56,39 @@
             ]
           },
           {
+            "group": "Loyalty",
+            "pages": [
+              "loyalty/ranking-management",
+              "loyalty/member-management",
+              "loyalty/gift-management",
+              "loyalty/points-setting"
+            ]
+          },
+          {
+            "group": "Marketing tools",
+            "pages": [
+              "marketing-tools/flash-sale",
+              "marketing-tools/mini-game",
+              "marketing-tools/promotion"
+            ]
+          },
+          {
+            "group": "Automation tools",
+            "pages": [
+              "automation/automation-flow",
+              "automation/template-notification",
+              "automation/group-customers"
+            ]
+          },
+          {
+            "group": "Settings",
+            "pages": [
+              "settings/delivery-setting",
+              "settings/integration",
+              "settings/miniapp-setting"
+            ]
+          },
+          {
             "group": "AI tools",
             "pages": [
               "ai-tools/cursor",
