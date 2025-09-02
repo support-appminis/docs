@@ -37,6 +37,7 @@
               "app-builder/builder/design-app/drag-drop-component",
               {
                 "group": "Page Builder",
+                "icon": "grid-dividers",
                 "pages": [
                   "app-builder/builder/pages/home",
                   "app-builder/builder/pages/category-page",
