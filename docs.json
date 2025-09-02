@@ -56,9 +56,40 @@
               }
             ]
           },
-          
           {
             "group": "Tài khoản & Đăng nhập",
+            "pages": [
+              "app-builder/authentication/register-login",
+              "app-builder/authentication/reset-account",
+              "app-builder/authentication/user-profile"
+            ]
+          },
+          {
+            "group": "Bố cục & Thư viện",
+            "pages": [
+              "app-builder/authentication/register-login",
+              "app-builder/authentication/reset-account",
+              "app-builder/authentication/user-profile"
+            ]
+          },
+          {
+            "group": "Tính năng mở rộng",
+            "pages": [
+              "app-builder/authentication/register-login",
+              "app-builder/authentication/reset-account",
+              "app-builder/authentication/user-profile"
+            ]
+          },
+          {
+            "group": "Demo & Xuất bản",
+            "pages": [
+              "app-builder/authentication/register-login",
+              "app-builder/authentication/reset-account",
+              "app-builder/authentication/user-profile"
+            ]
+          },
+          {
+            "group": "Hỗ trợ",
             "pages": [
               "app-builder/authentication/register-login",
               "app-builder/authentication/reset-account",
