@@ -22,6 +22,14 @@
             ]
           },
           {
+            "group": "Tài khoản & Đăng nhập",
+            "pages": [
+              "app-builder/authentication/register-login",
+              "app-builder/authentication/reset-account",
+              "app-builder/authentication/user-profile"
+            ]
+          },
+          {
             "group": "Mobile & Mini App Builder",
             "pages": [
               "app-builder/builder/general-settings",
@@ -54,14 +62,6 @@
                   "app-builder/builder/components/support"
                 ]
               }
-            ]
-          },
-          {
-            "group": "Tài khoản & Đăng nhập",
-            "pages": [
-              "app-builder/authentication/register-login",
-              "app-builder/authentication/reset-account",
-              "app-builder/authentication/user-profile"
             ]
           },
           {
