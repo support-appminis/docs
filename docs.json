@@ -81,11 +81,10 @@
             ]
           },
           {
-            "group": "Demo & Xuất bản",
+            "group": "Demo, xuất bản & thanh toán",
             "pages": [
-              "app-builder/authentication/register-login",
-              "app-builder/authentication/reset-account",
-              "app-builder/authentication/user-profile"
+              "app-builder/builder/demo-app",
+              "app-builder/builder/deploy-app"
             ]
           },
           {
