@@ -18,6 +18,16 @@
             "pages": [
               "index"
             ]
+          },
+          {
+            "group": "Settings",
+            "pages": [
+              "settings/company-profile-setting",
+              "settings/currency-setting",
+              "settings/delivery-setting",
+              "settings/integration",
+              "settings/miniapp-setting"
+            ]
           }
         ]
       },
