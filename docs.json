@@ -14,19 +14,27 @@
         "tab": "App Builder",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Bắt đầu",
             "pages": [
-              "index"
+              "index",
+              "app-builder/introduction/quickstart"
+              
             ]
           },
           {
-            "group": "Settings",
+            "group": "Tạo tài khoản & Đăng nhập",
             "pages": [
-              "settings/company-profile-setting",
-              "settings/currency-setting",
-              "settings/delivery-setting",
-              "settings/integration",
-              "settings/miniapp-setting"
+              "app-builder/authentication/register-login",
+              "app-builder/authentication/reset-account",
+              "app-builder/authentication/user-profile"
+            ]
+          },
+          {
+            "group": "Mobile & Mini App Builder",
+            "pages": [
+              "app-builder/authentication/register-login",
+              "app-builder/authentication/reset-account",
+              "app-builder/authentication/user-profile"
             ]
           }
         ]
