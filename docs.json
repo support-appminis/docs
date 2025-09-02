@@ -36,6 +36,7 @@
             "pages": [
               {
                 "group": "Quản lý sản phẩm",
+                "icon": "package-search",
                 "pages": [
                   "sale-management/product-management/products-management",
                   "sale-management/product-management/categories-management",
