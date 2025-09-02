@@ -48,7 +48,13 @@
                   "app-builder/builder/pages/minigame-page",
                   "app-builder/builder/pages/payment-page"
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "group": "Bố cục & Thư viện",
+            "pages": [
+              "app-builder/authentication/register-login",
               {
                 "group": "Components",
                 "pages": [
@@ -65,19 +71,13 @@
             ]
           },
           {
-            "group": "Bố cục & Thư viện",
-            "pages": [
-              "app-builder/authentication/register-login",
-              "app-builder/authentication/reset-account",
-              "app-builder/authentication/user-profile"
-            ]
-          },
-          {
             "group": "Tính năng mở rộng",
             "pages": [
-              "app-builder/authentication/register-login",
-              "app-builder/authentication/reset-account",
-              "app-builder/authentication/user-profile"
+              "app-builder/builder/features/automation",
+              "app-builder/builder/features/affiliate",
+              "app-builder/builder/features/flashsale",
+              "app-builder/builder/features/loyalty",
+              "app-builder/builder/features/minigame"
             ]
           },
           {
