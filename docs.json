@@ -37,9 +37,9 @@
               {
                 "group": "Quản lý sản phẩm",
                 "pages": [
-                  "sale-management/product-management/brands-management",
-                  "sale-management/product-management/categories-management",
                   "sale-management/product-management/products-management",
+                  "sale-management/product-management/categories-management",
+                  "sale-management/product-management/brands-management",
                   "sale-management/product-management/review-management"
                 ]
               },
