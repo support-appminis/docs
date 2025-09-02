@@ -33,8 +33,30 @@
             "group": "Mobile & Mini App Builder",
             "pages": [
               "app-builder/builder/general-settings",
-              "app-builder/builder/reset-account",
-              "app-builder/builder/user-profile"
+              "app-builder/builder/navigation-bar",
+              "app-builder/builder/drag-drop-component",
+              {
+                "group": "Page Builder",
+                "pages": [
+                  "app-builder/builder/pages/home",
+                  "app-builder/builder/pages/category-page",
+                  "app-builder/builder/pages/flashsale-page",
+                  "app-builder/builder/pages/booking-page",
+                  "app-builder/builder/pages/product-page",
+                  "app-builder/builder/pages/product-detail-page",
+                  "app-builder/builder/pages/user-profile-page",
+                  "app-builder/builder/pages/minigame-page",
+                  "app-builder/builder/pages/payment-page"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Components",
+            "pages": [
+              "app-builder/authentication/register-login",
+              "app-builder/authentication/reset-account",
+              "app-builder/authentication/user-profile"
             ]
           }
         ]
