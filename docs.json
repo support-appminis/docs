@@ -49,6 +49,14 @@
             ]
           },
           {
+            "group": "Quản lý booking",
+            "pages": [
+              "sale-management/order-management",
+              "sale-management/inventory-management"
+              
+            ]
+          },
+          {
             "group": "Quản lý người dùng",
             "pages": [
               "users-management/customers-management",
