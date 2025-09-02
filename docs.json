@@ -40,19 +40,23 @@
                   "app-builder/builder/pages/minigame-page",
                   "app-builder/builder/pages/payment-page"
                 ]
+              },
+              {
+                "group": "Components",
+                "pages": [
+                  "app-builder/components/headers",
+                  "app-builder/components/banners",
+                  "app-builder/components/categories",
+                  "app-builder/components/products",
+                  "app-builder/components/categories",
+                  "app-builder/components/categories"
+                ]
               }
             ]
           },
+          
           {
             "group": "Tài khoản & Đăng nhập",
-            "pages": [
-              "app-builder/authentication/register-login",
-              "app-builder/authentication/reset-account",
-              "app-builder/authentication/user-profile"
-            ]
-          },
-          {
-            "group": "Components",
             "pages": [
               "app-builder/authentication/register-login",
               "app-builder/authentication/reset-account",
