@@ -44,12 +44,12 @@
               {
                 "group": "Components",
                 "pages": [
-                  "app-builder/components/headers",
-                  "app-builder/components/banners",
-                  "app-builder/components/categories",
-                  "app-builder/components/products",
-                  "app-builder/components/categories",
-                  "app-builder/components/categories"
+                  "app-builder/builder/components/headers",
+                  "app-builder/builder/components/banners",
+                  "app-builder/builder/components/categories",
+                  "app-builder/builder/components/products",
+                  "app-builder/builder/components/categories",
+                  "app-builder/builder/components/categories"
                 ]
               }
             ]
