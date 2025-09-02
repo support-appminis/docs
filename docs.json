@@ -125,17 +125,22 @@
       "anchors": [
         {
           "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "href": "https://docs.appminis.io/",
           "icon": "book-open-cover"
         },
         {
           "anchor": "Community",
-          "href": "https://mintlify.com/community",
+          "href": "https://appminis.io/community",
           "icon": "slack"
         },
         {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "href": "https://appminis.io/blog",
+          "icon": "newspaper"
+        },
+        {
+          "anchor": "Roadmap",
+          "href": "https://appminis.io/roadmap",
           "icon": "newspaper"
         }
       ]
