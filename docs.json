@@ -54,7 +54,7 @@
           {
             "group": "Bố cục & Thư viện",
             "pages": [
-              "app-builder/authentication/register-login",
+              "app-builder/builder/img-library",
               {
                 "group": "Components",
                 "pages": [
