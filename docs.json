@@ -51,8 +51,9 @@
           {
             "group": "Quản lý booking",
             "pages": [
-              "sale-management/order-management",
-              "sale-management/inventory-management"
+              "booking-management/booking-management",
+              "booking-management/service-management",
+              "booking-management/schedule-setting"
               
             ]
           },
