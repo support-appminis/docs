@@ -32,9 +32,9 @@
           {
             "group": "Mobile & Mini App Builder",
             "pages": [
-              "app-builder/authentication/register-login",
-              "app-builder/authentication/reset-account",
-              "app-builder/authentication/user-profile"
+              "app-builder/builder/general-settings",
+              "app-builder/builder/reset-account",
+              "app-builder/builder/user-profile"
             ]
           }
         ]
