@@ -84,7 +84,8 @@
             "group": "Demo, xuất bản & thanh toán",
             "pages": [
               "app-builder/builder/demo-app",
-              "app-builder/builder/deploy-app"
+              "app-builder/builder/deploy-app",
+              "app-builder/builder/payment"
             ]
           },
           {
