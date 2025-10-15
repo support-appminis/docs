@@ -1,22 +1,21 @@
 ---
-title: 'Automation'
-description: 'Description of your new file.'
+title: "Automation"
+description: "Description of your new file."
 icon: "circle-user"
 ---
-## **6.1. Automation** 
+
+## **6.1. Automation**
 
 ### **6.1.1. Giới thiệu về Automation**
 
-Automation trong AppMinis là công cụ giúp bạn tự động hóa các quy trình chăm sóc khách hàng, marketing và vận hành mà không cần lập trình.  
- Với tính năng này, bạn có thể tạo ra các luồng hành động tự động (automation flow) dựa trên hành vi người dùng hoặc sự kiện cụ thể trong ứng dụng.
+Automation trong AppMinis là công cụ giúp bạn tự động hóa các quy trình chăm sóc khách hàng, marketing và vận hành mà không cần lập trình.\
+Với tính năng này, bạn có thể tạo ra các luồng hành động tự động (automation flow) dựa trên hành vi người dùng hoặc sự kiện cụ thể trong ứng dụng.
 
 Ví dụ:
 
-* Khi khách hàng đăng ký tài khoản mới, hệ thống tự động gửi tin nhắn chào mừng qua Zalo OA hoặc Email.
-
-* Khi khách hàng hoàn tất đơn hàng, hệ thống có thể gửi tin nhắn cảm ơn kèm mã giảm giá.
-
-* Khi khách hàng không hoạt động trong 7 ngày, hệ thống gửi lời nhắc quay lại ứng dụng.
+- Khi khách hàng đăng ký tài khoản mới, hệ thống tự động gửi tin nhắn chào mừng qua Zalo OA hoặc Email.
+- Khi khách hàng hoàn tất đơn hàng, hệ thống có thể gửi tin nhắn cảm ơn kèm mã giảm giá.
+- Khi khách hàng không hoạt động trong 7 ngày, hệ thống gửi lời nhắc quay lại ứng dụng.
 
 Tất cả đều được thực hiện hoàn toàn tự động, giúp doanh nghiệp tiết kiệm thời gian và tối ưu tương tác với người dùng.
 
@@ -24,149 +23,177 @@ Tất cả đều được thực hiện hoàn toàn tự động, giúp doanh n
 
 Mỗi kịch bản tự động (Automation Flow) trong AppMinis gồm 3 thành phần chính:
 
-**1\. Trigger (Trình kích hoạt)**
-
+**1. Trigger (Trình kích hoạt)**\
 Trigger là sự kiện khởi đầu cho luồng tự động. Đây là điều kiện “nếu có” xảy ra, hệ thống sẽ bắt đầu xử lý chuỗi hành động.
 
-Một số ví dụ phổ biến:
+Ví dụ phổ biến:
 
-* Khi người dùng đăng ký tài khoản mới
+- Khi người dùng đăng ký tài khoản mới
+- Khi người dùng hoàn tất đơn hàng
+- Khi người dùng click vào một nút cụ thể trong Mini App
+- Khi đến một ngày nhất định (ví dụ: sinh nhật, ngày hết hạn gói dịch vụ)
 
-* Khi người dùng hoàn tất đơn hàng
-
-* Khi người dùng click vào một nút cụ thể trong Mini App
-
-* Khi đến một ngày nhất định (ví dụ: sinh nhật, ngày hết hạn gói dịch vụ)
-
-Bạn có thể chọn Trigger phù hợp với mục tiêu của chiến dịch.
-
----
-
-**2\. Condition (Điều kiện)**
-
+**2. Condition (Điều kiện)**\
 Condition giúp bạn lọc và xác định đối tượng hoặc hoàn cảnh cụ thể trước khi hành động xảy ra.
 
 Ví dụ:
 
-* Chỉ gửi tin nhắn cho người dùng có vai trò là khách hàng VIP.
+- Chỉ gửi tin nhắn cho người dùng có vai trò là khách hàng VIP.
+- Chỉ gửi nếu đơn hàng có giá trị trên 500.000đ.
+- Chỉ thực hiện nếu người dùng chưa từng nhận ưu đãi này trước đó.
 
-* Chỉ gửi nếu đơn hàng có giá trị trên 500.000đ.
+**3. Action (Hành động)**\
+Action là bước thực hiện sau khi thỏa mãn Trigger và Condition.
 
-* Chỉ thực hiện nếu người dùng chưa từng nhận ưu đãi này trước đó.
+Các loại hành động phổ biến:
 
-Điều kiện có thể được kết hợp linh hoạt để tạo các luồng thông minh và cá nhân hóa trải nghiệm người dùng.
+- 📩 Gửi ZNS (qua Zalo OA): xác nhận đơn hàng, OTP, khuyến mãi, chúc mừng sinh nhật,...
+- 💬 Gửi OA Message: chăm sóc khách hàng, mời tham gia sự kiện.
+- 📧 Gửi Email tự động: chào mừng, khuyến mãi, nhắc nhở giỏ hàng chưa thanh toán,...
+- 📱 Gửi SMS: thông tin nhanh hoặc xác thực.
+- 🔄 Hành động nội bộ: tạo điểm thưởng, cập nhật trạng thái đơn hàng, thêm người dùng vào nhóm loyalty,...
 
----
-
-**3\. Action (Hành động)**
-
-Action là bước thực hiện hành động tự động sau khi thỏa mãn Trigger và Condition.
-
-Các loại hành động phổ biến trong AppMinis bao gồm:
-
-* 📩 Gửi tin nhắn ZNS (qua Zalo Official Account): gửi thông báo xác nhận đơn hàng, OTP, khuyến mãi, chúc mừng sinh nhật,...
-
-* 💬 Gửi tin nhắn qua OA (Zalo Official Account Message): nhắn tin chăm sóc khách hàng hoặc mời tham gia sự kiện.
-
-* 📧 Gửi Email tự động: chào mừng, khuyến mãi, nhắc nhở giỏ hàng chưa thanh toán,...
-
-* 📱 Gửi SMS: gửi thông tin nhanh hoặc xác thực người dùng.
-
-* 🔄 Kích hoạt hành động nội bộ khác: ví dụ tạo điểm thưởng, cập nhật trạng thái đơn hàng, thêm người dùng vào nhóm loyalty,...
-
-Mỗi Action có thể được thực hiện ngay lập tức hoặc trì hoãn (delay) theo thời gian bạn định nghĩa (ví dụ: sau 1 giờ, sau 3 ngày,...).
+> Mỗi Action có thể chạy ngay hoặc có **độ trễ (delay)** theo thời gian bạn định nghĩa (ví dụ: sau 1 giờ, sau 3 ngày,...).
 
 ### **6.1.3. Cách tạo một luồng Automation**
 
-Để tạo một Automation Flow mới trong AppMinis, bạn chỉ cần thực hiện:
-
 <Steps>
-
   <Step title="Truy cập Chiến dịch trong Automation">
     Truy cập mục **Chiến dịch** trong thẻ **Automation** trong bảng quản trị.
 
-    Chiến dịch trong Automation  
-    ![][image386]
-  </Step>
+    Chiến dịch trong Automation
 
+    <Frame caption>
+      <img
+        src="https://aimini-upload.sgp1.digitaloceanspaces.com/image512_fc9997ffa8.png"
+        alt="Screenshot of a deployment confirmation message that says All checks have passed."
+        style={{ borderRadius:"0.5rem" }}
+        title=""
+      />
+    </Frame>
+  </Step>
   <Step title="Thêm chiến dịch mới">
     Nhấn **Thêm chiến dịch** để bắt đầu.
 
-    Thêm chiến dịch trong Automation  
-    ![][image387]
-  </Step>
+    Thêm chiến dịch trong Automation
 
+    <Frame caption>
+      <img
+        src="https://aimini-upload.sgp1.digitaloceanspaces.com/image513_cb02291db6.png"
+        alt="Screenshot of a deployment confirmation message that says All checks have passed."
+        style={{ borderRadius:"0.5rem" }}
+        title=""
+      />
+    </Frame>
+  </Step>
   <Step title="Thiết lập thông tin chiến dịch">
     Thay đổi thông tin chiến dịch và nhấn **Lưu**.
 
-    Thay đổi thông tin chiến dịch  
-    ![][image388]
-  </Step>
+    Thay đổi thông tin chiến dịch
 
-  <Step title="Thêm Trigger (nếu cần)">
+    <Frame caption>
+      <img
+        src="https://aimini-upload.sgp1.digitaloceanspaces.com/image514_15d6a86365.png"
+        alt="Screenshot of a deployment confirmation message that says All checks have passed."
+        style={{ borderRadius:"0.5rem" }}
+        title=""
+      />
+    </Frame>
+  </Step>
+  <Step title="Chọn Trigger (nếu cần)">
     Kéo thả hoặc bấm chọn **Trigger** (nếu cần sự kiện kích hoạt).
 
-    Danh sách Trigger  
-    ![][image389]
+    Danh sách Trigger
 
-    Sau khi chọn Trigger  
-    ![][image390]
+    <Frame caption>
+      <img
+        src="https://aimini-upload.sgp1.digitaloceanspaces.com/image515_5fd4504fde.png"
+        alt="Screenshot of a deployment confirmation message that says All checks have passed."
+        style={{ borderRadius:"0.5rem" }}
+        title=""
+      />
+    </Frame>
+    Sau khi chọn Trigger
+
+    <Frame caption>
+      <img
+        src="https://aimini-upload.sgp1.digitaloceanspaces.com/image516_549821ebb2.png"
+        alt="Screenshot of a deployment confirmation message that says All checks have passed."
+        style={{ borderRadius:"0.5rem" }}
+        title=""
+      />
+    </Frame>
   </Step>
-
   <Step title="Thêm Điều kiện (nếu có)">
     Thêm **Điều kiện** (điều kiện ràng buộc nếu có).
 
-    Danh sách điều kiện  
-    ![][image391]
+    Danh sách điều kiện
 
-    Setup thông tin điều kiện  
-    ![][image392]
+    <Frame caption>
+      <img
+        src="https://aimini-upload.sgp1.digitaloceanspaces.com/image517_41fe7c0e57.png"
+        alt="Screenshot of a deployment confirmation message that says All checks have passed."
+        style={{ borderRadius:"0.5rem" }}
+        title=""
+      />
+    </Frame>
+    Setup thông tin điều kiện
+
+    <Frame caption>
+      <img
+        src="https://aimini-upload.sgp1.digitaloceanspaces.com/image518_756f6a7f8f.png"
+        alt="Screenshot of a deployment confirmation message that says All checks have passed."
+        style={{ borderRadius:"0.5rem" }}
+        title=""
+      />
+    </Frame>
   </Step>
-
   <Step title="Chọn Hành động (bắt buộc)">
-    Chọn **Hành động** (bắt buộc) — ví dụ: gửi **ZNS**, **OA**, **Email**, hoặc **SMS**.
+    Chọn **Hành động** — ví dụ: gửi **ZNS**, **OA**, **Email**, hoặc **SMS**.
 
-    Setup thông tin hành động  
-    ![][image393]
+    Setup thông tin hành động
+
+    <Frame caption>
+      <img
+        src="https://aimini-upload.sgp1.digitaloceanspaces.com/image519_73d409ded6.png"
+        alt="Screenshot of a deployment confirmation message that says All checks have passed."
+        style={{ borderRadius:"0.5rem" }}
+        title=""
+      />
+    </Frame>
   </Step>
-
   <Step title="Xem lại & Kích hoạt">
-    Xem lại luồng, sau đó bật trạng thái **Lưu** hoặc **Kích hoạt (Active)**.
+    Xem lại luồng, sau đó **Lưu** hoặc bật **Kích hoạt (Active)**.
 
-    Setup thông tin hành động  
-    ![][image394]
+    Setup thông tin hành động
+
+    <Frame caption>
+      <img
+        src="https://aimini-upload.sgp1.digitaloceanspaces.com/image520_b960ede5a2.png"
+        alt="Screenshot of a deployment confirmation message that says All checks have passed."
+        style={{ borderRadius:"0.5rem" }}
+        title=""
+      />
+    </Frame>
   </Step>
-
 </Steps>
 
 > Hệ thống sẽ tự động chạy luồng mỗi khi **Trigger** xảy ra.
 
-
 ### **6.1.4. Lợi ích của Automation**
 
-* Tiết kiệm thời gian: Không cần thao tác thủ công gửi từng tin.
-
-* Cá nhân hóa trải nghiệm: Gửi đúng nội dung, đúng thời điểm, đúng người.
-
-* Tăng tỷ lệ chuyển đổi: Duy trì tương tác và chăm sóc khách hàng liên tục.
-
-* Đồng bộ dữ liệu: Mọi hành động, thông tin và phản hồi đều được ghi nhận tự động vào hệ thống.
-
+- **Tiết kiệm thời gian:** Không cần thao tác thủ công gửi từng tin.
+- **Cá nhân hóa trải nghiệm:** Gửi đúng nội dung, đúng thời điểm, đúng người.
+- **Tăng tỷ lệ chuyển đổi:** Duy trì tương tác và chăm sóc khách hàng liên tục.
+- **Đồng bộ dữ liệu:** Mọi hành động, thông tin và phản hồi đều được ghi nhận tự động vào hệ thống.
 
 ### **6.1.5. Ví dụ thực tế**
 
-Kịch bản: Chăm sóc khách hàng sau mua hàng
+**Kịch bản: Chăm sóc khách hàng sau mua hàng**
 
-* **Trigger:** Người dùng hoàn tất thanh toán đơn hàng.
-
-* **Điều kiện:** Giá trị đơn hàng \> 300.000đ.
-
-* **Hành động:**
-
+- **Trigger:** Người dùng hoàn tất thanh toán đơn hàng.
+- **Điều kiện:** Giá trị đơn hàng \> 300.000đ.
+- **Hành động:**
   1. Gửi ZNS xác nhận đơn hàng.
-
   2. Sau 2 ngày → gửi OA cảm ơn và mời đánh giá sản phẩm.
-
   3. Sau 7 ngày → gửi Email khuyến mãi “Mua lần 2 giảm 10%”.
-
-
