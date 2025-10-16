@@ -1,17 +1,16 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Aimini POS API",
-    "description": "Official documentation for Aimini Admin POS API. Includes authentication and POS management endpoints.",
-    "version": "1.0.0",
+    "title": "OpenAPI Plant Store",
+    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
     "license": {
       "name": "MIT"
-    }
+    },
+    "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://sandbox.aimini.vn",
-      "description": "Sandbox server"
+      "url": "http://sandbox.mintlify.com"
     }
   ],
   "security": [
@@ -20,93 +19,40 @@
     }
   ],
   "paths": {
-    "/api/v1/auth/login": {
-      "post": {
-        "tags": ["Auth"],
-        "summary": "Login POS",
-        "description": "Authenticate POS admin and retrieve an access token for authorized requests.",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "email": {
-                    "type": "string",
-                    "example": "aimini_company40162@gmail.com"
-                  },
-                  "password": {
-                    "type": "string",
-                    "example": "aimini_company40162@gmail.com"
-                  }
-                },
-                "required": ["email", "password"]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Login successful",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "access_token": {
-                      "type": "string",
-                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6..."
-                    },
-                    "token_type": {
-                      "type": "string",
-                      "example": "bearer"
-                    },
-                    "user": {
-                      "type": "object",
-                      "properties": {
-                        "id": { "type": "integer", "example": 1 },
-                        "email": { "type": "string", "example": "aimini_company40162@gmail.com" },
-                        "role": { "type": "string", "example": "admin" }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": { "description": "Invalid email or password" }
-        }
-      }
-    },
-
-    "/api/v1/products": {
+    "/plants": {
       "get": {
-        "tags": ["Products"],
-        "summary": "Get product list",
-        "description": "Retrieve all available products in the POS system.",
+        "description": "Returns all plants from the system that the user has access to",
         "parameters": [
           {
             "name": "limit",
             "in": "query",
-            "schema": { "type": "integer", "example": 20 },
-            "description": "Maximum number of products to return"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "schema": { "type": "integer", "example": 1 },
-            "description": "Page number for pagination"
+            "description": "The maximum number of results to return",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "List of products",
+            "description": "Plant response",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": { "$ref": "#/components/schemas/Product" }
+                  "items": {
+                    "$ref": "#/components/schemas/Plant"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -114,102 +60,157 @@
         }
       },
       "post": {
-        "tags": ["Products"],
-        "summary": "Create product",
-        "description": "Add a new product to the POS system.",
+        "description": "Creates a new plant in the store",
         "requestBody": {
-          "required": true,
+          "description": "Plant to add to the store",
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/NewProduct" }
+              "schema": {
+                "$ref": "#/components/schemas/NewPlant"
+              }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
-          "201": {
-            "description": "Product created successfully",
+          "200": {
+            "description": "plant response",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Product" }
+                "schema": {
+                  "$ref": "#/components/schemas/Plant"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
               }
             }
           }
         }
       }
     },
-
-    "/api/v1/products/{id}": {
-      "get": {
-        "tags": ["Products"],
-        "summary": "Get product details",
+    "/plants/{id}": {
+      "delete": {
+        "description": "Deletes a single plant based on the ID supplied",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "ID of plant to delete",
             "required": true,
-            "schema": { "type": "integer" }
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           }
         ],
         "responses": {
-          "200": {
-            "description": "Product details",
+          "204": {
+            "description": "Plant deleted",
+            "content": {}
+          },
+          "400": {
+            "description": "unexpected error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Product" }
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
               }
             }
-          },
-          "404": { "description": "Product not found" }
-        }
-      },
-      "delete": {
-        "tags": ["Products"],
-        "summary": "Delete product",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "integer" }
           }
-        ],
+        }
+      }
+    }
+  },
+  "webhooks": {
+    "/plant/webhook": {
+      "post": {
+        "description": "Information about a new plant added to the store",
+        "requestBody": {
+          "description": "Plant added to the store",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPlant"
+              }
+            }
+          }
+        },
         "responses": {
-          "204": { "description": "Product deleted" },
-          "404": { "description": "Product not found" }
+          "200": {
+            "description": "Return a 200 status to indicate that the data was received successfully"
+          }
         }
       }
     }
   },
   "components": {
     "schemas": {
-      "Product": {
+      "Plant": {
+        "required": [
+          "name"
+        ],
         "type": "object",
-        "required": ["id", "name", "price"],
         "properties": {
-          "id": { "type": "integer", "example": 101 },
-          "name": { "type": "string", "example": "Aimini T-Shirt" },
-          "price": { "type": "number", "example": 199000 },
-          "category": { "type": "string", "example": "Fashion" },
-          "status": { "type": "string", "example": "available" },
-          "image_url": { "type": "string", "example": "https://cdn.aimini.vn/images/product101.jpg" }
+          "name": {
+            "description": "The name of the plant",
+            "type": "string"
+          },
+          "tag": {
+            "description": "Tag to specify the type",
+            "type": "string"
+          }
         }
       },
-      "NewProduct": {
+      "NewPlant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Plant"
+          },
+          {
+            "required": [
+              "id"
+            ],
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Identification number of the plant",
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "Error": {
+        "required": [
+          "error",
+          "message"
+        ],
         "type": "object",
-        "required": ["name", "price"],
         "properties": {
-          "name": { "type": "string", "example": "Aimini T-Shirt" },
-          "price": { "type": "number", "example": 199000 },
-          "category": { "type": "string", "example": "Fashion" },
-          "image_url": { "type": "string", "example": "https://cdn.aimini.vn/images/product101.jpg" }
+          "error": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
         }
       }
     },
     "securitySchemes": {
       "bearerAuth": {
         "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
+        "scheme": "bearer"
       }
     }
   }
