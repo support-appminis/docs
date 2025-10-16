@@ -1,216 +1,239 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
-    "license": {
-      "name": "MIT"
-    },
+    "title": "Amini POS API",
+    "description": "Full OpenAPI documentation for Amini POS system converted from Postman Collection.\nIncludes Auth, Products, Loyalty, Flash Sales, News, Promotions, and User Management endpoints.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "url": "https://upload.aimini.vn",
+      "description": "Production API server (Amini POS)"
     }
   ],
-  "security": [
-    {
-      "bearerAuth": []
-    }
-  ],
-  "paths": {
-    "/plants": {
-      "get": {
-        "description": "Returns all plants from the system that the user has access to",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "description": "Creates a new plant in the store",
-        "requestBody": {
-          "description": "Plant to add to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Plant"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "webhooks": {
-    "/plant/webhook": {
-      "post": {
-        "description": "Information about a new plant added to the store",
-        "requestBody": {
-          "description": "Plant added to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Return a 200 status to indicate that the data was received successfully"
-          }
-        }
-      }
-    }
-  },
   "components": {
-    "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "The name of the plant",
-            "type": "string"
-          },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
-          }
-        }
-      },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
-          },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
-      },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "type": "string"
-          }
-        }
-      }
-    },
     "securitySchemes": {
       "bearerAuth": {
         "type": "http",
-        "scheme": "bearer"
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [{ "bearerAuth": [] }],
+  "paths": {
+    "/api/v1/auth/login": {
+      "post": {
+        "summary": "Login POS",
+        "description": "Authenticate POS user and return JWT token.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string", "example": "aimini_company40162@gmail.com" },
+                  "password": { "type": "string", "example": "aimini_company40162@gmail.com" }
+                },
+                "required": ["email", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login success",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": { "token": "JWT_TOKEN_EXAMPLE", "user": { "id": 1, "name": "Admin" } }
+                }
+              }
+            }
+          },
+          "401": { "description": "Invalid credentials" }
+        }
+      }
+    },
+    "/api/v1/custom-collection": {
+      "get": {
+        "summary": "Get all custom collections",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "List of collections" },
+          "401": { "description": "Unauthorized" }
+        }
+      },
+      "post": {
+        "summary": "Create new custom collection",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "type": "object" },
+              "example": { "title": "Featured Products", "slug": "featured-products" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Created" } }
+      }
+    },
+    "/api/v1/news-category": {
+      "get": {
+        "summary": "Get news categories",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Success" } }
+      },
+      "post": {
+        "summary": "Create news category",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": { "name": "Technology", "slug": "technology" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Created" } }
+      }
+    },
+    "/api/v1/news": {
+      "get": {
+        "summary": "Get news list",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Success" } }
+      },
+      "post": {
+        "summary": "Create new article",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "title": "New Product Launch",
+                "content": "Details about the new product.",
+                "category_id": "7ZWDdvWp"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Created" } }
+      }
+    },
+    "/api/v1/flashsale": {
+      "get": {
+        "summary": "Get flash sale programs",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "List of flash sales" } }
+      },
+      "post": {
+        "summary": "Create flash sale event",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "title": "Black Friday Sale",
+                "discount_percent": 50,
+                "start_date": "2025-11-01T00:00:00Z",
+                "end_date": "2025-11-30T23:59:59Z"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Created" } }
+      }
+    },
+    "/api/v1/redeem-voucher": {
+      "get": {
+        "summary": "List redeem vouchers",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Success" } }
+      },
+      "post": {
+        "summary": "Create new redeem voucher",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "code": "SALE50",
+                "discount": 50,
+                "valid_until": "2025-12-31T00:00:00Z"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Created" } }
+      }
+    },
+    "/api/v1/users": {
+      "get": {
+        "summary": "Get user list",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "schema": { "type": "string" },
+            "example": "id,name,email,phone,status"
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      },
+      "post": {
+        "summary": "Create new user",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "user_type": "customers",
+                "name": "Test Postman",
+                "email": "testpostman@gmail.com",
+                "phone": "841218733754",
+                "password": "12345678910",
+                "status": "enabled"
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Created" } }
+      }
+    },
+    "/api/v1/users/{id}": {
+      "delete": {
+        "summary": "Delete user by ID",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "204": { "description": "Deleted" } }
+      }
+    },
+    "/api/v1/edit-all-user-members-aimini": {
+      "post": {
+        "summary": "Edit all user members (Amini Loyalty)",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": { "amount_to_point": 10000, "converted_amount": 1000 }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Updated all user points" } }
+      }
+    },
+    "/api/v1/missions/{id}": {
+      "delete": {
+        "summary": "Delete mission by ID",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "204": { "description": "Deleted mission" } }
       }
     }
   }
