@@ -231,7 +231,7 @@
     }
   },
   "api": {
-    "base": "./api-reference/openapi.json"
+    "base": "api-reference/openapi.json"
   },
   "logo": {
     "light": "/logo/light.svg",
