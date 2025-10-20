@@ -195,11 +195,10 @@
           {
             "group": "Endpoint examples",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
               "api-reference/endpoint/login",
-              "api-reference/endpoint/webhook",
-              "api-reference/endpoint/settings-company-get"
+
+              "api-reference/endpoint/settings-company-get",
+              "api-reference/endpoint/settings-company-update"
             ]
           }
         ]
