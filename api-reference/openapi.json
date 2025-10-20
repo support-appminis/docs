@@ -236,8 +236,6 @@
         "responses": { "200": { "description": "Collection created" } }
       }
     }
-  }
-,
     "/api/v1/products": {
       "get": {
         "summary": "Get product list",
@@ -472,8 +470,7 @@
         },
         "responses": { "201": { "description": "News created successfully" } }
       }
-    }
-,
+    },
     "/api/v1/flashsale": {
       "get": {
         "summary": "Get flash sale programs",
@@ -709,8 +706,7 @@
         },
         "responses": { "201": { "description": "Affiliate added successfully" } }
       }
-    }
-,
+    },
     "/api/v1/booking": {
       "get": {
         "summary": "Get booking list",
