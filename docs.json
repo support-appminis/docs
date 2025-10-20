@@ -198,7 +198,8 @@
               "api-reference/endpoint/get",
               "api-reference/endpoint/create",
               "api-reference/endpoint/settings-company-get",
-              "api-reference/endpoint/webhook"
+              "api-reference/endpoint/webhook", 
+              "api-reference/endpoint/login"
             ]
           }
         ]
