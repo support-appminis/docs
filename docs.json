@@ -195,7 +195,7 @@
           {
             "group": "Endpoint examples",
             "pages": [
-              "api-reference/endpoint/auth-login",
+              "api-reference/endpoint/login",
               "api-reference/endpoint/auth-logout",
               "api-reference/endpoint/users-get",
               "api-reference/endpoint/users-create",
