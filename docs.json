@@ -230,9 +230,9 @@
       ]
     }
   },
-"api": {
-  "base": "./api-reference/openapi.json"
-},
+  "api": {
+    "base": "./api-reference/openapi.json"
+  },
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
