@@ -208,7 +208,12 @@
               "api-reference/endpoint/custom-collection-with-parent-update",
               "api-reference/endpoint/custom-collection-delete",
               "api-reference/endpoint/custom-collection-with-products-create"
-
+            ]
+          },
+          {
+            "group": "Endpoint Category News",
+            "pages": [
+              "api-reference/endpoint/login"
             ]
           }
         ]
