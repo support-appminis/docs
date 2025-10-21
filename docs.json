@@ -221,7 +221,7 @@
             {
               "group": "Manager User",
               "pages": [
-                "api-reference/endpoint/loyalty/manager-user/"
+                "api-reference/endpoint/loyalty/manager-user/user-collection-get"
               ]
             },
             {
