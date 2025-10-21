@@ -58,829 +58,178 @@
           "401": { "description": "Invalid credentials" }
         }
       }
-    },
-    "/api/v1/auth/register": {
+    },   
+    "/api/v1/custom-collection": {
+      "get": {
+        "summary": "Get custom collections",
+        "description": "Retrieve all custom collections available in the system.",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": {
+            "description": "List of custom collections",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    { "id": "8qA9dVqo", "name": "Danh mục 1", "slug": "danh-muc-1" },
+                    { "id": "7bv3gPWj", "name": "Danh mục 2", "slug": "danh-muc-2" }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
-        "summary": "Register new user",
-        "description": "Create a new user account for Aiminis POS.",
+        "summary": "Create custom collection",
+        "description": "Add a new custom collection without parent or products.",
+        "security": [{ "bearerAuth": [] }],
         "requestBody": {
           "required": true,
           "content": {
-            "application/json": {
+            "application/x-www-form-urlencoded": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "email": { "type": "string" },
-                  "password": { "type": "string" },
-                  "name": { "type": "string" }
+                  "name": { "type": "string", "example": "Danh mục 2" },
+                  "slug": { "type": "string", "example": "danh-muc-2" },
+                  "image": { "type": "string", "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg" },
+                  "banner_image": { "type": "string", "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg" }
                 },
-                "required": ["email", "password", "name"]
-              },
-              "example": {
-                "email": "newuser@example.com",
-                "password": "securepassword",
-                "name": "Nguyen Van A"
+                "required": ["name", "slug"]
               }
             }
           }
         },
         "responses": {
-          "201": { "description": "User registered successfully" },
-          "400": { "description": "Email already exists" }
+          "200": { "description": "Custom collection created successfully" }
         }
       }
     },
-    "/api/v1/auth/logout": {
+    "/api/v1/custom-collection/with-parent": {
       "post": {
-        "summary": "Logout user",
-        "description": "Invalidate user JWT token.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": { "description": "Logout success" },
-          "401": { "description": "Invalid token" }
-        }
-      }
-    },
-    "/api/v1/users": {
-      "get": {
-        "summary": "Get user list",
-        "description": "Retrieve list of users with filters and pagination.",
-        "security": [{ "bearerAuth": [] }],
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "schema": { "type": "integer", "default": 1 }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "schema": { "type": "integer", "default": 20 }
-          },
-          {
-            "name": "search",
-            "in": "query",
-            "schema": { "type": "string" }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List of users",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    { "id": 1, "name": "Admin", "email": "admin@aimini.vn" },
-                    { "id": 2, "name": "Staff", "email": "staff@aimini.vn" }
-                  ],
-                  "meta": { "page": 1, "total": 2 }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Create new user",
-        "description": "Add a new staff or customer user to the system.",
+        "summary": "Create custom collection with parent",
+        "description": "Add a new custom collection that belongs to another parent collection.",
         "security": [{ "bearerAuth": [] }],
         "requestBody": {
           "required": true,
           "content": {
-            "application/json": {
-              "example": {
-                "user_type": "customers",
-                "name": "Le Thi B",
-                "email": "customer@aimini.vn",
-                "phone": "0987654321",
-                "password": "123456",
-                "status": "enabled"
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string", "example": "Danh mục 3" },
+                  "slug": { "type": "string", "example": "danh-muc-3" },
+                  "banner_image": { "type": "string", "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg" },
+                  "image": { "type": "string", "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg" },
+                  "parent_id": { "type": "string", "example": "7bv3gPWj" }
+                },
+                "required": ["name", "slug"]
               }
             }
           }
         },
         "responses": {
-          "200": { "description": "User created successfully" },
-          "400": { "description": "Invalid data" }
+          "200": { "description": "Custom collection with parent created successfully" }
         }
       }
     },
-    "/api/v1/users/{id}": {
-      "get": {
-        "summary": "Get user detail",
-        "description": "Retrieve detailed info for a specific user.",
-        "security": [{ "bearerAuth": [] }],
-        "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
-        ],
-        "responses": {
-          "200": {
-            "description": "User detail",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": {
-                    "id": 1,
-                    "name": "Admin",
-                    "email": "admin@aimini.vn",
-                    "status": "enabled"
-                  }
-                }
-              }
-            }
-          },
-          "404": { "description": "User not found" }
-        }
-      },
-      "delete": {
-        "summary": "Delete user by ID",
-        "description": "Remove a user from the system by ID.",
-        "security": [{ "bearerAuth": [] }],
-        "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
-        ],
-        "responses": { "204": { "description": "User deleted successfully" } }
-      }
-    },
-    "/api/v1/custom-collection": {
-      "get": {
-        "summary": "Get all custom collections",
-        "description": "Retrieve all custom product collections created by the user.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "List of collections",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    { "id": 1, "title": "Featured Products", "slug": "featured-products" }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Create new custom collection",
-        "description": "Add a new custom product collection to the system.",
-        "security": [{ "bearerAuth": [] }],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": { "title": "Summer Sale", "slug": "summer-sale" }
-            }
-          }
-        },
-        "responses": { "200": { "description": "Collection created" } }
-      }
-    },
-    "/api/v1/products": {
-      "get": {
-        "summary": "Get product list",
-        "description": "Retrieve all products with pagination, filters, and search parameters.",
-        "security": [{ "bearerAuth": [] }],
-        "parameters": [
-          { "name": "page", "in": "query", "schema": { "type": "integer", "default": 1 } },
-          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 20 } },
-          { "name": "search", "in": "query", "schema": { "type": "string" } },
-          { "name": "category_id", "in": "query", "schema": { "type": "string" } },
-          { "name": "sort", "in": "query", "schema": { "type": "string", "enum": ["asc", "desc"] } }
-        ],
-        "responses": {
-          "200": {
-            "description": "List of products",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    {
-                      "id": "P001",
-                      "name": "Laptop Dell XPS 13",
-                      "price": 23990000,
-                      "stock": 10,
-                      "category": "Laptops"
-                    },
-                    {
-                      "id": "P002",
-                      "name": "iPhone 15 Pro",
-                      "price": 33990000,
-                      "stock": 5,
-                      "category": "Smartphones"
-                    }
-                  ],
-                  "meta": { "page": 1, "total": 2 }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Create new product",
-        "description": "Add a new product into the POS system.",
-        "security": [{ "bearerAuth": [] }],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "example": {
-                "name": "New Product",
-                "sku": "NP123",
-                "price": 199000,
-                "category_id": "CAT123",
-                "stock": 20,
-                "description": "A short description of the product."
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": { "description": "Product created successfully" },
-          "400": { "description": "Invalid input data" }
-        }
-      }
-    },
-    "/api/v1/products/{id}": {
-      "get": {
-        "summary": "Get product detail",
-        "description": "Retrieve detailed information about a specific product.",
-        "security": [{ "bearerAuth": [] }],
-        "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
-        ],
-        "responses": {
-          "200": {
-            "description": "Product details",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": {
-                    "id": "P001",
-                    "name": "Laptop Dell XPS 13",
-                    "price": 23990000,
-                    "category": "Laptops",
-                    "description": "A high-performance laptop with Intel i7 processor."
-                  }
-                }
-              }
-            }
-          },
-          "404": { "description": "Product not found" }
-        }
-      },
+    "/api/v1/custom-collection/{id}": {
       "put": {
-        "summary": "Update product",
-        "description": "Modify details of an existing product.",
+        "summary": "Update custom collection",
+        "description": "Update a custom collection by ID (without parent).",
         "security": [{ "bearerAuth": [] }],
         "parameters": [
           { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
         ],
         "requestBody": {
           "content": {
-            "application/json": {
-              "example": {
-                "name": "Updated Product Name",
-                "price": 24900000,
-                "stock": 8
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string", "example": "Danh mục 2" },
+                  "slug": { "type": "string", "example": "name" },
+                  "banner_image": { "type": "string", "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg" },
+                  "image": { "type": "string", "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg" }
+                }
               }
             }
           }
         },
         "responses": {
-          "200": { "description": "Product updated successfully" },
-          "404": { "description": "Product not found" }
-        }
-      },
-      "delete": {
-        "summary": "Delete product",
-        "description": "Remove a product permanently from the database.",
-        "security": [{ "bearerAuth": [] }],
-        "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
-        ],
-        "responses": { "204": { "description": "Product deleted successfully" } }
-      }
-    },
-    "/api/v1/categories": {
-      "get": {
-        "summary": "Get product categories",
-        "description": "Fetch all product categories from the system.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "List of categories",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    { "id": "CAT1", "name": "Laptops" },
-                    { "id": "CAT2", "name": "Smartphones" },
-                    { "id": "CAT3", "name": "Accessories" }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Create category",
-        "description": "Add a new product category.",
-        "security": [{ "bearerAuth": [] }],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": { "name": "New Category", "slug": "new-category" }
-            }
-          }
-        },
-        "responses": { "201": { "description": "Category created successfully" } }
-      }
-    },
-    "/api/v1/brands": {
-      "get": {
-        "summary": "Get brand list",
-        "description": "Retrieve all product brands registered in the system.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "List of brands",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    { "id": "BR001", "name": "Apple" },
-                    { "id": "BR002", "name": "Dell" },
-                    { "id": "BR003", "name": "Samsung" }
-                  ]
-                }
-              }
-            }
-          }
+          "200": { "description": "Custom collection updated successfully" }
         }
       }
     },
-    "/api/v1/news": {
-      "get": {
-        "summary": "Get news list",
-        "description": "Retrieve latest news and articles posted in the app.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "News list",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    {
-                      "id": "N001",
-                      "title": "New Product Launch",
-                      "category": "Technology",
-                      "created_at": "2025-10-10"
-                    },
-                    {
-                      "id": "N002",
-                      "title": "Aiminis Loyalty Program Update",
-                      "category": "Promotion",
-                      "created_at": "2025-10-11"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Create news article",
-        "description": "Publish a new news post on the system.",
-        "security": [{ "bearerAuth": [] }],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": {
-                "title": "New Flash Sale Event",
-                "content": "Announcing our big sale for Black Friday!",
-                "category_id": "CAT_PROMO"
-              }
-            }
-          }
-        },
-        "responses": { "201": { "description": "News created successfully" } }
-      }
-    },
-    "/api/v1/flashsale": {
-      "get": {
-        "summary": "Get flash sale programs",
-        "description": "Retrieve all flash sale events currently active in the system.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "List of flash sale events",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    {
-                      "id": "FS001",
-                      "title": "Black Friday Sale",
-                      "discount_percent": 50,
-                      "start_date": "2025-11-01T00:00:00Z",
-                      "end_date": "2025-11-30T23:59:59Z"
-                    },
-                    {
-                      "id": "FS002",
-                      "title": "Year-End Sale",
-                      "discount_percent": 40,
-                      "start_date": "2025-12-10T00:00:00Z",
-                      "end_date": "2025-12-31T23:59:59Z"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Create new flash sale event",
-        "description": "Add a new flash sale promotion to the POS system.",
-        "security": [{ "bearerAuth": [] }],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": {
-                "title": "Holiday Sale",
-                "discount_percent": 30,
-                "start_date": "2025-12-01T00:00:00Z",
-                "end_date": "2025-12-15T23:59:59Z"
-              }
-            }
-          }
-        },
-        "responses": { "201": { "description": "Flash sale created successfully" } }
-      }
-    },
-    "/api/v1/promotions": {
-      "get": {
-        "summary": "Get promotions",
-        "description": "Retrieve list of all promotions in the system.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "Promotion list",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    {
-                      "id": "PR001",
-                      "name": "Buy 1 Get 1 Free",
-                      "type": "BOGO",
-                      "start_date": "2025-10-01",
-                      "end_date": "2025-11-01"
-                    },
-                    {
-                      "id": "PR002",
-                      "name": "10% Off Electronics",
-                      "type": "Discount",
-                      "start_date": "2025-11-10",
-                      "end_date": "2025-12-10"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Create promotion",
-        "description": "Add new promotion rule to the marketing system.",
-        "security": [{ "bearerAuth": [] }],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": {
-                "name": "Weekend Discount",
-                "discount_percent": 15,
-                "valid_from": "2025-10-20",
-                "valid_until": "2025-10-30"
-              }
-            }
-          }
-        },
-        "responses": { "201": { "description": "Promotion created successfully" } }
-      }
-    },
-    "/api/v1/loyalty/rankings": {
-      "get": {
-        "summary": "Get loyalty rankings",
-        "description": "Retrieve all customer ranking tiers for loyalty points.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "Loyalty ranking list",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    { "id": "R1", "name": "Bronze", "threshold": 0 },
-                    { "id": "R2", "name": "Silver", "threshold": 500 },
-                    { "id": "R3", "name": "Gold", "threshold": 1000 }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Create new loyalty rank",
-        "description": "Define a new loyalty ranking tier.",
-        "security": [{ "bearerAuth": [] }],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": { "name": "Platinum", "threshold": 2000 }
-            }
-          }
-        },
-        "responses": { "201": { "description": "Loyalty rank created successfully" } }
-      }
-    },
-    "/api/v1/loyalty/members": {
-      "get": {
-        "summary": "Get loyalty members",
-        "description": "Retrieve list of customers participating in the loyalty program.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "List of loyalty members",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    {
-                      "id": "CUST001",
-                      "name": "Nguyen Van A",
-                      "points": 350,
-                      "rank": "Silver"
-                    },
-                    {
-                      "id": "CUST002",
-                      "name": "Tran Thi B",
-                      "points": 800,
-                      "rank": "Gold"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Add loyalty member",
-        "description": "Register a new customer into loyalty membership.",
-        "security": [{ "bearerAuth": [] }],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": {
-                "customer_id": "CUST003",
-                "points": 100,
-                "rank": "Bronze"
-              }
-            }
-          }
-        },
-        "responses": { "201": { "description": "Member added successfully" } }
-      }
-    },
-    "/api/v1/affiliate": {
-      "get": {
-        "summary": "Get affiliate reports",
-        "description": "Fetch all affiliate partners and their commission summaries.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "Affiliate report list",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    {
-                      "partner": "Influencer A",
-                      "commission": 1500000,
-                      "orders": 25
-                    },
-                    {
-                      "partner": "Affiliate B",
-                      "commission": 900000,
-                      "orders": 10
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Add affiliate partner",
-        "description": "Register a new affiliate partner into the marketing system.",
-        "security": [{ "bearerAuth": [] }],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": {
-                "name": "New Partner",
-                "email": "partner@aimini.vn",
-                "commission_rate": 10
-              }
-            }
-          }
-        },
-        "responses": { "201": { "description": "Affiliate added successfully" } }
-      }
-    },
-    "/api/v1/booking": {
-      "get": {
-        "summary": "Get booking list",
-        "description": "Retrieve all booking records from the POS system.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "List of bookings",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    {
-                      "id": "B001",
-                      "customer_name": "Nguyen Van C",
-                      "service": "Spa Package",
-                      "date": "2025-10-15T09:00:00Z",
-                      "status": "Confirmed"
-                    },
-                    {
-                      "id": "B002",
-                      "customer_name": "Tran Thi D",
-                      "service": "Hair Treatment",
-                      "date": "2025-10-16T14:00:00Z",
-                      "status": "Pending"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Create new booking",
-        "description": "Register a new booking for a service.",
-        "security": [{ "bearerAuth": [] }],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": {
-                "customer_name": "Le Van E",
-                "service_id": "SVC123",
-                "booking_date": "2025-11-01T10:00:00Z",
-                "notes": "VIP customer"
-              }
-            }
-          }
-        },
-        "responses": { "201": { "description": "Booking created successfully" } }
-      }
-    },
-    "/api/v1/services": {
-      "get": {
-        "summary": "Get service list",
-        "description": "Retrieve all service offerings available for booking.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "List of services",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    { "id": "SVC001", "name": "Facial", "duration": 60, "price": 300000 },
-                    { "id": "SVC002", "name": "Massage", "duration": 90, "price": 500000 }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/games": {
-      "get": {
-        "summary": "Get mini-games",
-        "description": "List all mini-games available in Aiminis app.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "Mini-games list",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    { "id": "G001", "name": "Spin to Win", "reward": "Discount 10%" },
-                    { "id": "G002", "name": "Lucky Draw", "reward": "Free Shipping" }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Create new mini-game",
-        "description": "Add a new mini-game event to the marketing system.",
-        "security": [{ "bearerAuth": [] }],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": {
-                "name": "Lucky Wheel",
-                "reward": "Voucher 50K",
-                "start_date": "2025-11-10T00:00:00Z",
-                "end_date": "2025-12-10T00:00:00Z"
-              }
-            }
-          }
-        },
-        "responses": { "201": { "description": "Mini-game created successfully" } }
-      }
-    },
-    "/api/v1/insurance": {
-      "get": {
-        "summary": "Get insurance products",
-        "description": "Retrieve list of insurance packages available for sale.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "List of insurance products",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    { "id": "INS001", "name": "Health Insurance Basic", "price": 1200000 },
-                    { "id": "INS002", "name": "Travel Insurance", "price": 500000 }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/settings/company": {
-      "get": {
-        "summary": "Get company settings",
-        "description": "Retrieve company configuration such as name, address, logo.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "Company settings data",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": {
-                    "name": "Aiminis Co., Ltd.",
-                    "address": "123 Nguyen Van Linh, District 7, Ho Chi Minh City",
-                    "email": "contact@aimini.vn"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
+    "/api/v1/custom-collection/{id}/with-parent": {
       "put": {
-        "summary": "Update company settings",
-        "description": "Modify company information such as name, logo, contact info.",
+        "summary": "Update custom collection with parent",
+        "description": "Update a custom collection that belongs to a parent collection.",
         "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
         "requestBody": {
           "content": {
-            "application/json": {
-              "example": {
-                "name": "Aiminis Vietnam",
-                "address": "456 Le Lai, District 1, Ho Chi Minh City",
-                "email": "support@aimini.vn"
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string", "example": "Danh mục 2" },
+                  "slug": { "type": "string", "example": "name" },
+                  "banner_image": { "type": "string", "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg" },
+                  "image": { "type": "string", "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg" },
+                  "parent_id": { "type": "string", "example": "7bv3gPWj" }
+                }
               }
             }
           }
         },
-        "responses": { "200": { "description": "Company settings updated successfully" } }
+        "responses": {
+          "200": { "description": "Custom collection with parent updated successfully" }
+        }
+      }
+    },
+    "/api/v1/custom-collection/with-products": {
+      "post": {
+        "summary": "Create custom collection with products",
+        "description": "Create or update a custom collection and attach product IDs.",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string", "example": "Danh mục 2" },
+                  "slug": { "type": "string", "example": "danh-muc-2" },
+                  "image": { "type": "string", "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg" },
+                  "banner_image": { "type": "string", "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg" },
+                  "parent_id": { "type": "string", "example": "" },
+                  "products[0]": { "type": "string", "example": "P001" }
+                },
+                "required": ["name", "slug"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Custom collection with products created successfully" }
+        }
+      }
+    },
+    "/api/v1/custom-collection/{id}": {
+      "delete": {
+        "summary": "Delete custom collection",
+        "description": "Delete a custom collection by ID.",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "204": { "description": "Custom collection deleted successfully" }
+        }
       }
     }
   }

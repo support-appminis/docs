@@ -202,7 +202,12 @@
             "group": "Endpoint Custom Collection",
             "pages": [
               "api-reference/endpoint/custom-collection-get",
-              "api-reference/endpoint/custom-collection-create"
+              "api-reference/endpoint/custom-collection-create",
+              "api-reference/endpoint/custom-collection-with-parent-create",
+              "api-reference/endpoint/custom-collection-update",
+              "api-reference/endpoint/custom-collection-with-parent-update",
+              "api-reference/endpoint/custom-collection-delete",
+              "api-reference/endpoint/custom-collection-with-products-create"
 
             ]
           }
