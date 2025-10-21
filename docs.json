@@ -215,7 +215,7 @@
             ]
           },
           {
-            "group": "Loyalty",
+            "group": "Endpoint Loyalty",
             "pages": [
               {
                 "group": "Manager User",
