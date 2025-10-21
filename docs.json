@@ -226,28 +226,28 @@
               {
                 "group": "List Gifts",
                 "pages": [
-                  "api-reference/endpoint/loyalty/list-gifts/get-redeem-voucher",
-                  "api-reference/endpoint/loyalty/list-gifts/create-redeem-voucher",
-                  "api-reference/endpoint/loyalty/list-gifts/update-redeem-voucher",
-                  "api-reference/endpoint/loyalty/list-gifts/delete-redeem-voucher"
+                  "api-reference/endpoint/loyalty/list-gifts/redeem-voucher-get",
+                  "api-reference/endpoint/loyalty/list-gifts/redeem-voucher-create",
+                  "api-reference/endpoint/loyalty/list-gifts/redeem-voucher-update",
+                  "api-reference/endpoint/loyalty/list-gifts/redeem-voucher-delete"
                 ]
               },
               {
                 "group": "Manage Membership",
                 "pages": [
-                  "api-reference/endpoint/loyalty/manage-membership/get-rank-collection",
-                  "api-reference/endpoint/loyalty/manage-membership/create-rank-collection",
-                  "api-reference/endpoint/loyalty/manage-membership/update-rank-collection",
-                  "api-reference/endpoint/loyalty/manage-membership/delete-rank-collection"
+                  "api-reference/endpoint/loyalty/manage-membership/rank-collection-get",
+                  "api-reference/endpoint/loyalty/manage-membership/rank-collection-create",
+                  "api-reference/endpoint/loyalty/manage-membership/rank-collection-update",
+                  "api-reference/endpoint/loyalty/manage-membership/rank-collection-delete"
                 ]
               },
               {
                 "group": "Manage Point",
                 "pages": [
-                  "api-reference/endpoint/loyalty/manage-point/get-mission-collection",
-                  "api-reference/endpoint/loyalty/manage-point/create-mission-collection",
-                  "api-reference/endpoint/loyalty/manage-point/update-point-conversion",
-                  "api-reference/endpoint/loyalty/manage-point/delete-mission-collection"
+                  "api-reference/endpoint/loyalty/manage-point/mission-collection-get",
+                  "api-reference/endpoint/loyalty/manage-point/mission-collection-create",
+                  "api-reference/endpoint/loyalty/manage-point/point-conversion-update",
+                  "api-reference/endpoint/loyalty/manage-point/mission-collection-delete"
                 ]
               }
             ]
