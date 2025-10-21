@@ -229,7 +229,8 @@
                   "api-reference/endpoint/loyalty/list-gifts/redeem-voucher-get",
                   "api-reference/endpoint/loyalty/list-gifts/redeem-voucher-create",
                   "api-reference/endpoint/loyalty/list-gifts/redeem-voucher-update",
-                  "api-reference/endpoint/loyalty/list-gifts/redeem-voucher-delete"
+                  "api-reference/endpoint/loyalty/list-gifts/redeem-voucher-delete",
+                  "api-reference/endpoint/loyalty/list-gifts/voucher-collection-create"
                 ]
               },
               {
