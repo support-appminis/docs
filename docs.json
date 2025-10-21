@@ -210,7 +210,8 @@
           {
             "group": "Endpoint Category News",
             "pages": [
-              "api-reference/endpoint/login"
+              "api-reference/endpoint/news-get",
+              "api-reference/endpoint/news-create"
             ]
           }
         ]
