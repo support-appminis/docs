@@ -299,6 +299,186 @@
           "400": { "description": "Invalid input data" }
         }
       }
+    },
+    "/api/v1/customers": {
+      "get": {
+        "tags": ["Manager User"],
+        "summary": "[GET] User Collection",
+        "description": "Lấy danh sách khách hàng với thông tin điểm thưởng, hạng thành viên và lịch sử giao dịch.",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "example": 10 } },
+          { "name": "offset", "in": "query", "schema": { "type": "integer", "example": 0 } },
+          { "name": "order", "in": "query", "schema": { "type": "string", "example": "id desc" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "Danh sách khách hàng cùng thông tin điểm và hạng.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    { "name": "Ngọc", "rank_point": 8, "rank": "Đồng", "phone": "84834664069" }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/redeem-voucher": {
+      "get": {
+        "tags": ["List Gifts"],
+        "summary": "[GET] Redeem Voucher Collection",
+        "description": "Lấy danh sách chương trình đổi quà, voucher và điểm cần thiết để quy đổi.",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": {
+            "description": "Danh sách voucher có thể đổi.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "name": "test chương trình",
+                      "promotion_batches": [{ "name": "test đổi quà", "points_needed_to_redeem": 10 }]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["List Gifts"],
+        "summary": "[POST] Redeem Voucher",
+        "description": "Tạo mới chương trình đổi quà và gắn voucher với điểm cần thiết.",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "name": "Thêm chương trình đổi quà",
+                "is_active": true,
+                "start_date": "2025-09-03 18:50:44",
+                "end_date": "2025-09-06 18:50:47",
+                "vouchers": [{ "promotion_batch_id": "EjWEpbQJ", "points": { "points_needed_to_redeem": 50 } }]
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Chương trình tạo thành công" } }
+      },
+      "put": {
+        "tags": ["List Gifts"],
+        "summary": "[PUT] Redeem Voucher",
+        "description": "Cập nhật thông tin chương trình đổi quà hoặc voucher.",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Chỉnh sửa thành công" } }
+      },
+      "delete": {
+        "tags": ["List Gifts"],
+        "summary": "[DELETE] Redeem Voucher",
+        "description": "Xóa chương trình đổi quà hoặc voucher cụ thể.",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Đã xóa chương trình" } }
+      }
+    },
+    "/api/v1/response-user-member": {
+      "get": {
+        "tags": ["Manage Membership"],
+        "summary": "[GET] Rank Collection",
+        "description": "Lấy danh sách hạng thành viên (Đồng, Bạc, Vàng, Kim Cương) cùng điều kiện đạt hạng.",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": {
+            "description": "Danh sách hạng thành viên",
+            "content": {
+              "application/json": {
+                "example": { "data": [{ "name": "Vàng", "min_spent_amount": 5000000, "discount": 15 }] }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Manage Membership"],
+        "summary": "[POST] Rank Collection",
+        "description": "Thêm mới hạng thành viên và thiết lập điều kiện đạt hạng.",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "amount_to_point": 10000,
+                "converted_amount": 1,
+                "rankDetails": [
+                  {
+                    "rank": "Kim cương",
+                    "discount": 15,
+                    "min_spent_amount": 20000000,
+                    "maximum_discount_order": 5000000,
+                    "vouchers": ["JWzoJYrN"]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Tạo hạng thành viên thành công" } }
+      },
+      "put": {
+        "tags": ["Manage Membership"],
+        "summary": "[PUT] Rank Collection",
+        "description": "Cập nhật thông tin hạng thành viên hiện có.",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Cập nhật thành công" } }
+      },
+      "delete": {
+        "tags": ["Manage Membership"],
+        "summary": "[DELETE] Rank Collection",
+        "description": "Xóa một hạng thành viên cụ thể.",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Xóa hạng thành viên thành công" } }
+      }
+    },
+    "/api/v1/missions": {
+      "get": {
+        "tags": ["Manage Point"],
+        "summary": "[GET] Missions Collection",
+        "description": "Lấy danh sách nhiệm vụ tích điểm (mua hàng, chia sẻ, đánh giá,...)",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Danh sách nhiệm vụ" } }
+      },
+      "post": {
+        "tags": ["Manage Point"],
+        "summary": "[POST] Missions Collection",
+        "description": "Thêm mới nhiệm vụ tích điểm cho người dùng.",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "missions": [
+                  {
+                    "title": "Đánh giá sản phẩm tốt",
+                    "limit_plays": 10,
+                    "award": 100000,
+                    "type_mission": "rating_product",
+                    "type_award": "extra_point",
+                    "status": "active"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Tạo nhiệm vụ thành công" } }
+      }
     }
+  
   }
 }

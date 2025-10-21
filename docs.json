@@ -213,6 +213,47 @@
               "api-reference/endpoint/news-get",
               "api-reference/endpoint/news-create"
             ]
+          },
+          {
+            
+          "group": "Loyalty",
+          "pages": [
+            {
+              "group": "Manager User",
+              "pages": [
+                "api-reference/endpoint/loyalty/manager-user/"
+              ]
+            },
+            {
+              "group": "List Gifts",
+              "pages": [
+                "api-reference/endpoint/loyalty/list-gifts/",
+                "api-reference/endpoint/loyalty/list-gifts/",
+                "api-reference/endpoint/loyalty/list-gifts/",
+                "api-reference/endpoint/loyalty/list-gifts/"
+              ]
+            },
+            {
+              "group": "Manage Membership",
+              "pages": [
+                "api-reference/endpoint/loyalty/manage-membership/",
+                "api-reference/endpoint/loyalty/manage-membership/",
+                "api-reference/endpoint/loyalty/manage-membership/",
+                "api-reference/endpoint/loyalty/manage-membership/"
+              ]
+            },
+            {
+              "group": "Manage Point",
+              "pages": [
+                "api-reference/endpoint/loyalty/manage-point/",
+                "api-reference/endpoint/loyalty/manage-point/",
+                "api-reference/endpoint/loyalty/manage-point/",
+                "api-reference/endpoint/loyalty/manage-point/"
+              ]
+            }
+          ]
+        
+
           }
         ]
       }
