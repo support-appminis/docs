@@ -60,217 +60,143 @@
       }
     },   
     "/api/v1/custom-collection": {
-      "get": {
-        "summary": "Get all custom collections",
-        "description": "Retrieve all custom product collections created by the user.",
-        "security": [{ "bearerAuth": [] }],
-        "responses": {
-          "200": {
-            "description": "List of collections",
-            "content": {
-              "application/json": {
-                "example": {
-                  "data": [
-                    {
-                      "id": 1,
-                      "title": "Danh mục 1",
-                      "slug": "danh-muc-1"
-                    }
-                  ]
-                }
-              }
+  "get": {
+    "summary": "Get all custom collections",
+    "description": "Retrieve all custom product collections created by the user.",
+    "security": [{ "bearerAuth": [] }],
+    "responses": {
+      "200": {
+        "description": "List of collections",
+        "content": {
+          "application/json": {
+            "example": {
+              "data": [
+                { "id": 1, "title": "Featured Products", "slug": "featured-products" }
+              ]
             }
-          }
-        }
-      },
-      "post": {
-        "summary": "Create new custom collection",
-        "description": "Add a new custom product collection to the system.",
-        "security": [{ "bearerAuth": [] }],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": { "type": "string", "example": "Danh mục 2" },
-                  "slug": { "type": "string", "example": "danh-muc-2" },
-                  "image": {
-                    "type": "string",
-                    "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg"
-                  },
-                  "banner_image": {
-                    "type": "string",
-                    "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg"
-                  }
-                },
-                "required": ["name", "slug"]
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Custom collection created successfully",
-            "content": {
-              "application/json": {
-                "example": {
-                  "message": "Created successfully",
-                  "data": {
-                    "id": "8qA9dVqo",
-                    "name": "Danh mục 2",
-                    "slug": "danh-muc-2"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/custom-collection/{id}": {
-      "put": {
-        "summary": "Update custom collection",
-        "description": "Update a specific custom collection by ID.",
-        "security": [{ "bearerAuth": [] }],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "string" },
-            "example": "8qA9dVqo"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": { "type": "string", "example": "Danh mục 2" },
-                  "slug": { "type": "string", "example": "name" },
-                  "image": {
-                    "type": "string",
-                    "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg"
-                  },
-                  "banner_image": {
-                    "type": "string",
-                    "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg"
-                  },
-                  "parent_id": {
-                    "type": "string",
-                    "example": "7bv3gPWj"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Custom collection updated successfully"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete custom collection",
-        "description": "Delete a custom collection by ID.",
-        "security": [{ "bearerAuth": [] }],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "string" },
-            "example": "8qA9dVqo"
-          }
-        ],
-        "responses": {
-          "204": { "description": "Collection deleted successfully" }
-        }
-      }
-    },
-    "/api/v1/custom-collection/with-parent": {
-      "post": {
-        "summary": "Create new custom collection with parent",
-        "description": "Add a new custom product collection that includes a parent_id field.",
-        "security": [{ "bearerAuth": [] }],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": { "type": "string", "example": "Danh mục 3" },
-                  "slug": { "type": "string", "example": "danh-muc-3" },
-                  "image": {
-                    "type": "string",
-                    "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg"
-                  },
-                  "banner_image": {
-                    "type": "string",
-                    "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg"
-                  },
-                  "parent_id": {
-                    "type": "string",
-                    "example": "7bv3gPWj"
-                  }
-                },
-                "required": ["name", "slug"]
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Custom collection with parent created successfully"
-          }
-        }
-      }
-    },
-    "/api/v1/custom-collection/with-products": {
-      "post": {
-        "summary": "Create custom collection with products",
-        "description": "Add a new custom product collection with related product IDs.",
-        "security": [{ "bearerAuth": [] }],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": { "type": "string", "example": "Danh mục 2" },
-                  "slug": { "type": "string", "example": "danh-muc-2" },
-                  "image": {
-                    "type": "string",
-                    "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg"
-                  },
-                  "banner_image": {
-                    "type": "string",
-                    "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg"
-                  },
-                  "parent_id": { "type": "string", "example": "" },
-                  "products": {
-                    "type": "array",
-                    "items": { "type": "string" },
-                    "example": ["P001", "P002"]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Custom collection with products created successfully"
           }
         }
       }
     }
+  },
+  "post": {
+    "summary": "Create or manage custom collections",
+    "description": "Add a new custom product collection. You can include optional fields to link it to a parent collection or attach products.",
+    "security": [{ "bearerAuth": [] }],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/x-www-form-urlencoded": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string", "example": "Danh mục 2" },
+              "slug": { "type": "string", "example": "danh-muc-2" },
+              "image": {
+                "type": "string",
+                "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg"
+              },
+              "banner_image": {
+                "type": "string",
+                "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg"
+              },
+              "parent_id": {
+                "type": "string",
+                "description": "Optional — specify if this collection belongs to another parent collection.",
+                "example": "7bv3gPWj"
+              },
+              "products[0]": {
+                "type": "string",
+                "description": "Optional — attach product IDs to this collection.",
+                "example": "PROD_12345"
+              }
+            },
+            "required": ["name", "slug"]
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Collection created or updated successfully",
+        "content": {
+          "application/json": {
+            "example": {
+              "message": "Custom collection created successfully",
+              "data": {
+                "id": "8qA9dVqo",
+                "name": "Danh mục 2",
+                "slug": "danh-muc-2",
+                "parent_id": "7bv3gPWj"
+              }
+            }
+          }
+        }
+      },
+      "400": { "description": "Invalid input data" }
+    }
+  }
+},
+    "/api/v1/custom-collection/{id}": {
+  "put": {
+    "summary": "Update custom collection",
+    "description": "Update existing collection. Can include optional parent_id to assign it to another collection.",
+    "security": [{ "bearerAuth": [] }],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "example": "8qA9dVqo"
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/x-www-form-urlencoded": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string", "example": "Danh mục 2" },
+              "slug": { "type": "string", "example": "danh-muc-2" },
+              "banner_image": { "type": "string" },
+              "image": { "type": "string" },
+              "parent_id": {
+                "type": "string",
+                "description": "Optional parent collection id",
+                "example": "7bv3gPWj"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Custom collection updated successfully"
+      },
+      "404": { "description": "Collection not found" }
+    }
+  },
+  "delete": {
+    "summary": "Delete custom collection",
+    "description": "Remove an existing custom collection by ID.",
+    "security": [{ "bearerAuth": [] }],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "example": "8qA9dVqo"
+      }
+    ],
+    "responses": {
+      "200": { "description": "Collection deleted successfully" },
+      "404": { "description": "Collection not found" }
+    }
+  }
+}
   }
 }
