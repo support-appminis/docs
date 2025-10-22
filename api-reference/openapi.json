@@ -1541,8 +1541,7 @@
     },
     "security": [{ "bearerAuth": [] }]
   }
-}
-
+},
     "/api/v1/missions": {
       "get": {
         "tags": [
