@@ -1256,180 +1256,90 @@
         ]
       }
     },
-    "/api/v1/redeem-voucher/aJrgKrl1": {
-      "put": {
-        "tags": [
-          "Admin POS",
-          "Loyalty",
-          "List Gifts"
-        ],
-        "summary": "[PUT] Redeem Voucher collection",
-        "description": "[PUT] Redeem Voucher collection",
-        "operationId": "putRedeemVoucherCollection",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "end_date": {
-                    "type": "string",
-                    "example": "2025-09-07T19:50:16.000Z"
-                  },
-                  "is_active": {
-                    "type": "number",
-                    "example": 1
-                  },
-                  "name": {
-                    "type": "string",
-                    "example": "Thêm chương trình đổi quà lần chỉnh sửa"
-                  },
-                  "start_date": {
-                    "type": "string",
-                    "example": "2025-09-03T18:50:44.000Z"
-                  },
-                  "vouchers": {
-                    "type": "array",
-                    "items": {
+    "/api/v1/redeem-voucher/{id}": {
+  "put": {
+    "tags": ["Admin POS", "Loyalty", "List Gifts"],
+    "summary": "[PUT] Redeem Voucher collection",
+    "description": "[PUT] Redeem Voucher collection",
+    "operationId": "putRedeemVoucherCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID của Redeem Voucher cần cập nhật"
+      }
+    ],
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "end_date": { "type": "string", "example": "2025-09-07T19:50:16.000Z" },
+              "is_active": { "type": "number", "example": 1 },
+              "name": { "type": "string", "example": "Thêm chương trình đổi quà lần chỉnh sửa" },
+              "start_date": { "type": "string", "example": "2025-09-03T18:50:44.000Z" },
+              "vouchers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "promotion_batch_id": { "type": "string", "example": "B7WlNqjQ" },
+                    "xid": { "type": "string", "example": "EjWEpbQJ" },
+                    "points": {
                       "type": "object",
                       "properties": {
-                        "name": {
-                          "type": "string",
-                          "example": "test Voucher 89"
-                        },
-                        "pivot": {
-                          "type": "object",
-                          "properties": {
-                            "point_conversion_setting_id": {
-                              "type": "number",
-                              "example": 17
-                            },
-                            "points_needed_to_redeem": {
-                              "type": "number",
-                              "example": 50
-                            },
-                            "promotion_batches_id": {
-                              "type": "number",
-                              "example": 42
-                            },
-                            "rank_id": {
-                              "nullable": true,
-                              "example": null
-                            }
-                          }
-                        },
-                        "points": {
-                          "type": "object",
-                          "properties": {
-                            "points_needed_to_redeem": {
-                              "type": "number",
-                              "example": 60
-                            }
-                          }
-                        },
-                        "promotion_batch_id": {
-                          "type": "string",
-                          "example": "B7WlNqjQ"
-                        },
-                        "xid": {
-                          "type": "string",
-                          "example": "EjWEpbQJ"
-                        }
+                        "points_needed_to_redeem": { "type": "number", "example": 60 }
                       }
-                    },
-                    "example": [
-                      {
-                        "name": "test Voucher 89",
-                        "pivot": {
-                          "point_conversion_setting_id": 17,
-                          "points_needed_to_redeem": 50,
-                          "promotion_batches_id": 42,
-                          "rank_id": null
-                        },
-                        "points": {
-                          "points_needed_to_redeem": 60
-                        },
-                        "promotion_batch_id": "B7WlNqjQ",
-                        "xid": "EjWEpbQJ"
-                      }
-                    ]
-                  }
-                }
-              },
-              "examples": {
-                "[PUT] Redeem Voucher collection": {
-                  "value": {
-                    "end_date": "2025-09-07T19:50:16.000Z",
-                    "is_active": 1,
-                    "name": "Thêm chương trình đổi quà lần chỉnh sửa",
-                    "start_date": "2025-09-03T18:50:44.000Z",
-                    "vouchers": [
-                      {
-                        "name": "test Voucher 89",
-                        "pivot": {
-                          "point_conversion_setting_id": 17,
-                          "points_needed_to_redeem": 50,
-                          "promotion_batches_id": 42,
-                          "rank_id": null
-                        },
-                        "points": {
-                          "points_needed_to_redeem": 60
-                        },
-                        "promotion_batch_id": "B7WlNqjQ",
-                        "xid": "EjWEpbQJ"
-                      }
-                    ]
+                    }
                   }
                 }
               }
             }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
-    "/api/v1/redeem-voucher/6ybkZq3D": {
-      "delete": {
-        "tags": [
-          "Admin POS",
-          "Loyalty",
-          "List Gifts"
-        ],
-        "summary": "[DELETE] Redeem Voucher collection",
-        "description": "[DELETE] Redeem Voucher collection",
-        "operationId": "deleteRedeemVoucherCollection",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "examples": {
-                "[DELETE] Redeem Voucher collection": {
-                  "value": ""
-                }
+          },
+          "examples": {
+            "[PUT] Redeem Voucher collection": {
+              "value": {
+                "end_date": "2025-09-07T19:50:16.000Z",
+                "is_active": 1,
+                "name": "Thêm chương trình đổi quà lần chỉnh sửa",
+                "start_date": "2025-09-03T18:50:44.000Z",
+                "vouchers": [
+                  {
+                    "promotion_batch_id": "B7WlNqjQ",
+                    "xid": "EjWEpbQJ",
+                    "points": { "points_needed_to_redeem": 60 }
+                  }
+                ]
               }
             }
           }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       }
     },
+    "responses": { "200": { "description": "Redeem Voucher updated successfully" } },
+    "security": [{ "bearerAuth": [] }]
+  },
+  "delete": {
+    "tags": ["Admin POS", "Loyalty", "List Gifts"],
+    "summary": "[DELETE] Redeem Voucher collection",
+    "description": "[DELETE] Redeem Voucher collection",
+    "operationId": "deleteRedeemVoucherCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID của Redeem Voucher cần xóa"
+      }
+    ],
+    "responses": { "200": { "description": "Redeem Voucher deleted successfully" } },
+    "security": [{ "bearerAuth": [] }]
+  }
+},
     "/api/v1/response-user-member": {
       "get": {
         "tags": [
