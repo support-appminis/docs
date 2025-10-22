@@ -195,8 +195,7 @@
           {
             "group": "Endpoint Auth",
             "pages": [
-              "api-reference/endpoint/login",
-              "api-reference/endpoint/te12"
+              "api-reference/endpoint/login"
             ]
           },
           {
