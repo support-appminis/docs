@@ -1435,72 +1435,114 @@
         ]
       }
     },
-    "/api/v1/response-user-member/6q8jE9Wz": {
-      "put": {
-        "tags": [
-          "Admin POS",
-          "Loyalty",
-          "Manage Membership"
-        ],
-        "summary": "[PUT] Rank collection",
-        "description": "[PUT] Rank collection",
-        "operationId": "putRankCollection",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "examples": {
-                "[PUT] Rank collection": {
-                  "value": "{\r\n  \"amount_to_point\": 10000,               // 10,000đ = 1 điểm\r\n  \"converted_amount\": 1,                  // Tỷ lệ quy đổi\r\n  \"current\": 1,                           // Hạng hiện tại\r\n  \"rankDetails\": [\r\n    {\r\n      \"rank\": \"Kim cươngg\",                // Tên hạng\r\n      \"min_spent_amount\": 25000000,       // Tổng chi tiêu tối thiểu để đạt (25 triệu)\r\n      \"discount\": 5,                      // Giảm giá % cho hạng này (5%)\r\n      \"maximum_discount_order\": 2000000,  // Giới hạn giảm tối đa mỗi đơn (2 triệu)\r\n      \"image\": \"kimcuong.png\",            // File ảnh upload\r\n      \"image_url\": \"https://aimini-upload.sgp1.cdn.digitaloceanspaces.com/ranks/kim_cuong_41bcb90fb8.jpg\",\r\n                                           // Link ảnh full URL\r\n      \"checked\": true,                    // Có bật giới hạn giảm tối đa\r\n      \"vouchers\": [\r\n        \"JWzoJYrN\"                        // Hash ID voucher gắn với hạng\r\n      ]\r\n    }\r\n  ]                       \r\n}\r\n"
+    "/api/v1/response-user-member/{id}": {
+  "put": {
+    "tags": ["Admin POS", "Loyalty", "Manage Membership"],
+    "summary": "[PUT] Rank collection",
+    "description": "[PUT] Rank collection",
+    "operationId": "putRankCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID của rank cần cập nhật"
+      }
+    ],
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "amount_to_point": {
+                "type": "number",
+                "example": 10000
+              },
+              "converted_amount": {
+                "type": "number",
+                "example": 1
+              },
+              "current": {
+                "type": "number",
+                "example": 1
+              },
+              "rankDetails": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "rank": { "type": "string", "example": "Kim cương" },
+                    "min_spent_amount": { "type": "number", "example": 25000000 },
+                    "discount": { "type": "number", "example": 5 },
+                    "maximum_discount_order": { "type": "number", "example": 2000000 },
+                    "image": { "type": "string", "example": "kimcuong.png" },
+                    "image_url": {
+                      "type": "string",
+                      "example": "https://aimini-upload.sgp1.cdn.digitaloceanspaces.com/ranks/kim_cuong_41bcb90fb8.jpg"
+                    },
+                    "checked": { "type": "boolean", "example": true },
+                    "vouchers": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "example": ["JWzoJYrN"]
+                    }
+                  }
                 }
               }
             }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
-    "/api/v1/response-user-member/Jb0neGrB": {
-      "delete": {
-        "tags": [
-          "Admin POS",
-          "Loyalty",
-          "Manage Membership"
-        ],
-        "summary": "[DELETE] Rank collection",
-        "description": "[DELETE] Rank collection",
-        "operationId": "deleteRankCollection",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "examples": {
-                "[DELETE] Rank collection": {
-                  "value": ""
-                }
+          },
+          "examples": {
+            "[PUT] Rank collection": {
+              "value": {
+                "amount_to_point": 10000,
+                "converted_amount": 1,
+                "current": 1,
+                "rankDetails": [
+                  {
+                    "rank": "Kim cương",
+                    "min_spent_amount": 25000000,
+                    "discount": 5,
+                    "maximum_discount_order": 2000000,
+                    "image": "kimcuong.png",
+                    "image_url": "https://aimini-upload.sgp1.cdn.digitaloceanspaces.com/ranks/kim_cuong_41bcb90fb8.jpg",
+                    "checked": true,
+                    "vouchers": ["JWzoJYrN"]
+                  }
+                ]
               }
             }
           }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       }
     },
+    "responses": {
+      "200": { "description": "Rank collection updated successfully" }
+    },
+    "security": [{ "bearerAuth": [] }]
+  },
+  "delete": {
+    "tags": ["Admin POS", "Loyalty", "Manage Membership"],
+    "summary": "[DELETE] Rank collection",
+    "description": "[DELETE] Rank collection",
+    "operationId": "deleteRankCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID của rank cần xóa"
+      }
+    ],
+    "responses": {
+      "200": { "description": "Rank collection deleted successfully" }
+    },
+    "security": [{ "bearerAuth": [] }]
+  }
+}
+
     "/api/v1/missions": {
       "get": {
         "tags": [

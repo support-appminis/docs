@@ -235,10 +235,10 @@
               {
                 "group": "Manage Membership",
                 "pages": [
-                  "api-reference/endpoint/loyalty/manage-membership/rank-collection-get",
-                  "api-reference/endpoint/loyalty/manage-membership/rank-collection-create",
-                  "api-reference/endpoint/loyalty/manage-membership/rank-collection-update",
-                  "api-reference/endpoint/loyalty/manage-membership/rank-collection-delete"
+                  "api-reference/endpoint/loyalty/manage-membership/membership-rank-get",
+                  "api-reference/endpoint/loyalty/manage-membership/membership-rank-create",
+                  "api-reference/endpoint/loyalty/manage-membership/membership-rank-update",
+                  "api-reference/endpoint/loyalty/manage-membership/membership-rank-delete"
                 ]
               },
               {
