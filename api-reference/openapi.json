@@ -26,6 +26,49 @@
     }
   ],
   "paths": {
+    "/api/v1/auth/login": {
+      "post": {
+        "tags": [
+          "Admin POS",
+          "Auth"
+        ],
+        "summary": "Login Pos",
+        "description": "Login Pos",
+        "operationId": "loginPos",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "aimini_company40162@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "aimini_company40162@gmail.com"
+                  }
+                }
+              },
+              "examples": {
+                "Login Pos": {
+                  "value": {
+                    "email": "aimini_company40162@gmail.com",
+                    "password": "aimini_company40162@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/api/v1/custom-collection": {
       "get": {
         "tags": [
@@ -18438,14 +18481,6 @@
             "bearerAuth": []
           }
         ]
-      }
-    }
-  },
-  "components": {
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
       }
     }
   },

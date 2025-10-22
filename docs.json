@@ -195,7 +195,8 @@
           {
             "group": "Endpoint Auth",
             "pages": [
-              "api-reference/endpoint/login"
+              "api-reference/endpoint/login",
+              "api-reference/endpoint/test123"
             ]
           },
           {
