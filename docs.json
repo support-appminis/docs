@@ -300,6 +300,22 @@
                 ]
               }
             ]
+          },
+          {
+            "group": "Endpoint Products",
+            "pages": [
+              {
+                "group": "Product",
+                "pages": [
+                  "api-reference/endpoint/products/product/product-collection-get",
+                  "api-reference/endpoint/products/product/product-collection-create",
+                  "api-reference/endpoint/products/product/product-collection-update",
+                  "api-reference/endpoint/products/product/product-collection-delete"
+                  
+                ]
+              }
+
+            ]
           }
         ]
       }
