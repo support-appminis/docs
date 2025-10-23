@@ -2544,7 +2544,7 @@
     "responses": { "200": { "description": "Cập nhật thành công" } },
     "security": [{ "bearerAuth": [] }]
   }
-}
+},
     "/api/v1/update-bookings-setting": {
       "post": {
         "tags": [
