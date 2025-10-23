@@ -207,8 +207,9 @@
           {
             "group": "Endpoint Custom Collection",
             "pages": [
-              "api-reference/endpoint/custom-colection-get",
-              "api-reference/endpoint/custom-colection-create"
+              "api-reference/endpoint/custom-collection-get",
+              "api-reference/endpoint/custom-collection-create",
+              "api-reference/endpoint/custom-collection-update"
             ]
           },
           {
