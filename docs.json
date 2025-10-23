@@ -253,7 +253,7 @@
               }
             ]
           },
-                    {
+          {
             "group": "Endpoint Booking",
             "pages": [
               {
@@ -268,12 +268,6 @@
                 ]
               },
               {
-                "group": "Bill",
-                "pages": [
-
-                ]
-              },
-              {
                 "group": "Set Calendar",
                 "pages": [
                   "api-reference/endpoint/booking/set-calendar/booking-setting-collection-get",
@@ -283,6 +277,15 @@
                   "api-reference/endpoint/booking/set-calendar/booking-setting-collection-create"
                 ]
               }
+            ]
+          },
+          {
+            "group": "Endpoint Services",
+            "pages": [
+              "api-reference/endpoint/service-collection-get",
+              "api-reference/endpoint/service-collection-create",
+              "api-reference/endpoint/service-collection-update",
+              "api-reference/endpoint/service-collection-delete"
             ]
           }
         ]
