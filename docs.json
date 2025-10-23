@@ -278,7 +278,8 @@
                 "pages": [
                   "api-reference/endpoint/booking/set-calendar/booking-setting-collection-get",
                   "api-reference/endpoint/booking/set-calendar/calendar-collection-get",
-                  "api-reference/endpoint/booking/set-calendar/calendar-collection-create"
+                  "api-reference/endpoint/booking/set-calendar/calendar-collection-create",
+                  "api-reference/endpoint/booking/set-calendar/calendar-collection-update"              
                   
                 ]
               }
