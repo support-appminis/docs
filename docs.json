@@ -199,13 +199,6 @@
             ]
           },
           {
-            "group": "Endpoint Custom Collection",
-            "pages": [
-              "api-reference/endpoint/custom-collection-get",
-              "api-reference/endpoint/custom-collection-create"
-            ]
-          },
-          {
             "group": "Endpoint Category News",
             "pages": [
               "api-reference/endpoint/news-get",
