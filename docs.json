@@ -259,8 +259,9 @@
               {
                 "group": "Appointment",
                 "pages": [
-                  "api-reference/endpoint/booking/appointment/booking-items-get",
-                  "api-reference/endpoint/booking/appointment/bookings-get"
+                  "api-reference/endpoint/booking/appointment/booking-item-collection-get",
+                  "api-reference/endpoint/booking/appointment/booking-collection-get",
+                  "api-reference/endpoint/booking/appointment/booking-collection-create"
                 ]
               },
               {
