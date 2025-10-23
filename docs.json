@@ -240,7 +240,7 @@
                 "pages": [
                   "api-reference/endpoint/loyalty/manage-point/mission-collection-get",
                   "api-reference/endpoint/loyalty/manage-point/mission-collection-create",
-                  "api-reference/endpoint/loyalty/manage-point/point-conversion-update",
+                  "api-reference/endpoint/loyalty/manage-point/point-conversion-create",
                   "api-reference/endpoint/loyalty/manage-point/mission-collection-delete"
                 ]
               }
