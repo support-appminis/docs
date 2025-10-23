@@ -2823,23 +2823,45 @@
         ]
       }
     },
-    "/api/v1/service-categories/GLWy4boZ": {
-      "delete": {
-        "tags": [
-          "Admin POS",
-          "Services",
-          "Categories"
-        ],
-        "summary": "[DELETE] Service collection",
-        "description": "[DELETE] Service collection",
-        "operationId": "deleteServiceCollection",
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        }
+    "/api/v1/service-categories/{id}": {
+  "delete": {
+    "tags": [
+      "Admin POS",
+      "Services",
+      "Categories"
+    ],
+    "summary": "[DELETE] Service Category",
+    "description": "Xóa danh mục dịch vụ theo ID.",
+    "operationId": "deleteServiceCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "ID của danh mục dịch vụ cần xóa."
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Xóa danh mục dịch vụ thành công."
+      },
+      "404": {
+        "description": "Không tìm thấy danh mục dịch vụ."
+      },
+      "401": {
+        "description": "Không có quyền truy cập."
       }
     },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ]
+  }
+},
     "/api/v1/services": {
       "get": {
         "tags": [
@@ -3274,188 +3296,108 @@
         ]
       }
     },
-    "/api/v1/services/EeqOQ4WD": {
-      "post": {
-        "tags": [
-          "Admin POS",
-          "Services",
-          "Service"
-        ],
-        "summary": "[POST] Service collection",
-        "description": "[POST] Service collection",
-        "operationId": "postServiceCollection2",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "_method": {
-                    "type": "string",
-                    "example": "PUT"
-                  },
-                  "description": {
-                    "type": "string",
-                    "example": "<p>Dịch vụ nhiều ưu đãi</p>"
-                  },
-                  "image": {
-                    "type": "string",
-                    "example": "restaurant_7a0b9437e2.jpg"
-                  },
-                  "image_url": {
-                    "type": "string",
-                    "example": "https://aimini-upload.sgp1.digitaloceanspaces.com/services/restaurant_7a0b9437e2.jpg"
-                  },
-                  "is_active": {
-                    "type": "boolean",
-                    "example": true
-                  },
-                  "item_code": {
-                    "type": "string",
-                    "example": "2264112344"
-                  },
-                  "listService": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "quantity": {
-                          "type": "number",
-                          "example": 6
-                        },
-                        "xid": {
-                          "type": "string",
-                          "example": "l7r74zqJ"
-                        }
-                      }
-                    },
-                    "example": [
-                      {
-                        "quantity": 6,
-                        "xid": "l7r74zqJ"
-                      },
-                      {
-                        "quantity": 5,
-                        "xid": "nBWM73q5"
-                      }
-                    ]
-                  },
-                  "procedure": {
-                    "type": "string",
-                    "example": "<p>liệu trình cho nhiều lần </p><p>làm khỏe cơ thể </p><p>gội đầu dưỡng sinh</p>"
-                  },
-                  "quantity": {
-                    "type": "number",
-                    "example": 1
-                  },
-                  "sales_price": {
-                    "type": "number",
-                    "example": 600000
-                  },
-                  "sales_tax_type": {
-                    "type": "string",
-                    "example": "exclusive"
-                  },
-                  "service_category_id": {
-                    "type": "string",
-                    "example": "RAb2OWx2"
-                  },
-                  "service_type": {
-                    "type": "string",
-                    "example": "combo"
-                  },
-                  "slug": {
-                    "type": "string",
-                    "example": "dich-vu-lam-khoe"
-                  },
-                  "tax_id": {
-                    "nullable": true,
-                    "example": null
-                  },
-                  "title": {
-                    "type": "string",
-                    "example": "Dịch vụ làm khỏe"
-                  },
-                  "unit_id": {
-                    "type": "string",
-                    "example": "Vbn0wvkr"
-                  },
-                  "warehouse_id": {
-                    "type": "string",
-                    "example": "KbKe32rL"
-                  }
-                }
-              },
-              "examples": {
-                "[POST] Service collection": {
-                  "value": {
-                    "_method": "PUT",
-                    "description": "<p>Dịch vụ nhiều ưu đãi</p>",
-                    "image": "restaurant_7a0b9437e2.jpg",
-                    "image_url": "https://aimini-upload.sgp1.digitaloceanspaces.com/services/restaurant_7a0b9437e2.jpg",
-                    "is_active": true,
-                    "item_code": "2264112344",
-                    "listService": [
-                      {
-                        "quantity": 6,
-                        "xid": "l7r74zqJ"
-                      },
-                      {
-                        "quantity": 5,
-                        "xid": "nBWM73q5"
-                      }
-                    ],
-                    "procedure": "<p>liệu trình cho nhiều lần </p><p>làm khỏe cơ thể </p><p>gội đầu dưỡng sinh</p>",
-                    "quantity": 1,
-                    "sales_price": 600000,
-                    "sales_tax_type": "exclusive",
-                    "service_category_id": "RAb2OWx2",
-                    "service_type": "combo",
-                    "slug": "dich-vu-lam-khoe",
-                    "tax_id": null,
-                    "title": "Dịch vụ làm khỏe",
-                    "unit_id": "Vbn0wvkr",
-                    "warehouse_id": "KbKe32rL"
+    "/api/v1/services/{id}": {
+  "post": {
+    "tags": ["Admin POS", "Services", "Service"],
+    "summary": "[POST] Update Service",
+    "description": "Cập nhật thông tin dịch vụ (sử dụng _method: PUT).",
+    "operationId": "updateServiceCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID của dịch vụ cần cập nhật."
+      }
+    ],
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "_method": { "type": "string", "example": "PUT" },
+              "title": { "type": "string", "example": "Dịch vụ làm khỏe" },
+              "description": { "type": "string", "example": "<p>Dịch vụ nhiều ưu đãi</p>" },
+              "procedure": { "type": "string", "example": "<p>Liệu trình nhiều lần</p>" },
+              "sales_price": { "type": "number", "example": 600000 },
+              "sales_tax_type": { "type": "string", "example": "exclusive" },
+              "service_category_id": { "type": "string", "example": "RAb2OWx2" },
+              "service_type": { "type": "string", "example": "combo" },
+              "unit_id": { "type": "string", "example": "Vbn0wvkr" },
+              "warehouse_id": { "type": "string", "example": "KbKe32rL" },
+              "is_active": { "type": "boolean", "example": true },
+              "image": { "type": "string", "example": "restaurant_7a0b9437e2.jpg" },
+              "image_url": { "type": "string", "example": "https://aimini-upload.sgp1.digitaloceanspaces.com/services/restaurant_7a0b9437e2.jpg" },
+              "listService": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "quantity": { "type": "number", "example": 6 },
+                    "xid": { "type": "string", "example": "l7r74zqJ" }
                   }
                 }
               }
             }
+          },
+          "examples": {
+            "[POST] Update Service": {
+              "value": {
+                "_method": "PUT",
+                "title": "Dịch vụ làm khỏe",
+                "description": "<p>Dịch vụ nhiều ưu đãi</p>",
+                "procedure": "<p>Liệu trình nhiều lần</p>",
+                "sales_price": 600000,
+                "sales_tax_type": "exclusive",
+                "service_category_id": "RAb2OWx2",
+                "service_type": "combo",
+                "unit_id": "Vbn0wvkr",
+                "warehouse_id": "KbKe32rL",
+                "is_active": true,
+                "image": "restaurant_7a0b9437e2.jpg",
+                "image_url": "https://aimini-upload.sgp1.digitaloceanspaces.com/services/restaurant_7a0b9437e2.jpg",
+                "listService": [
+                  { "quantity": 6, "xid": "l7r74zqJ" },
+                  { "quantity": 5, "xid": "nBWM73q5" }
+                ]
+              }
+            }
           }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       }
     },
-    "/api/v1/services/OdbegzrV\n": {
-      "delete": {
-        "tags": [
-          "Admin POS",
-          "Services",
-          "Service"
-        ],
-        "summary": "[DELETE] Service collection",
-        "description": "[DELETE] Service collection",
-        "operationId": "deleteServiceCollection1",
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
+    "responses": {
+      "200": { "description": "Cập nhật dịch vụ thành công." },
+      "400": { "description": "Yêu cầu không hợp lệ." }
     },
+    "security": [{ "bearerAuth": [] }]
+  }
+},
+    "/api/v1/services/{id}": {
+  "delete": {
+    "tags": ["Admin POS", "Services", "Service"],
+    "summary": "[DELETE] Service",
+    "description": "Xóa dịch vụ theo ID.",
+    "operationId": "deleteServiceCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID của dịch vụ cần xóa."
+      }
+    ],
+    "responses": {
+      "200": { "description": "Xóa dịch vụ thành công." },
+      "404": { "description": "Không tìm thấy dịch vụ." },
+      "401": { "description": "Không có quyền truy cập." }
+    },
+    "security": [{ "bearerAuth": [] }]
+  }
+},
     "/api/v1/products": {
       "get": {
         "tags": [
