@@ -199,12 +199,6 @@
             ]
           },
           {
-            "group": "Endpoint Auth",
-            "pages": [
-              "api-reference/endpoint/login"
-            ]
-          },
-          {
             "group": "Endpoint Custom Collection",
             "pages": [
               "api-reference/endpoint/custom-collection-get",
