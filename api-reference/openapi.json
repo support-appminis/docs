@@ -2043,105 +2043,69 @@
         ]
       }
     },
-    "/api/v1/online-booking-time/confirm/XAW5eyWo": {
-      "post": {
-        "tags": [
-          "Admin POS",
-          "Booking",
-          "Appointment"
-        ],
-        "summary": "[POST] Booking confirm collection",
-        "description": "[POST] Booking confirm collection",
-        "operationId": "postBookingConfirmCollection",
-        "requestBody": {
-          "content": {
-            "text/plain": {
-              "examples": {
-                "[POST] Booking confirm collection": {
-                  "value": ""
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+    "/api/v1/online-booking-time/confirm/{id}": {
+  "post": {
+    "tags": ["Admin POS", "Booking", "Appointment"],
+    "summary": "[POST] Booking confirm collection",
+    "description": "[POST] Booking confirm collection",
+    "operationId": "postBookingConfirmCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID của booking cần xác nhận"
       }
+    ],
+    "responses": {
+      "200": { "description": "Booking confirmed successfully" }
     },
-    "/api/v1/online-booking-time/cancel/ZLr9nmqe": {
-      "post": {
-        "tags": [
-          "Admin POS",
-          "Booking",
-          "Appointment"
-        ],
-        "summary": "[POST] Booking cancel collection",
-        "description": "[POST] Booking cancel collection",
-        "operationId": "postBookingCancelCollection",
-        "requestBody": {
-          "content": {
-            "text/plain": {
-              "examples": {
-                "[POST] Booking cancel collection": {
-                  "value": ""
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+    "security": [{ "bearerAuth": [] }]
+  }
+},
+    "/api/v1/online-booking-time/cancel/{id}": {
+  "post": {
+    "tags": ["Admin POS", "Booking", "Appointment"],
+    "summary": "[POST] Booking cancel collection",
+    "description": "[POST] Booking cancel collection",
+    "operationId": "postBookingCancelCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID của booking cần hủy"
       }
+    ],
+    "responses": {
+      "200": { "description": "Booking cancelled successfully" }
     },
-    "/api/v1/online-booking-time/refund/XAW5eyWo\n": {
-      "post": {
-        "tags": [
-          "Admin POS",
-          "Booking",
-          "Appointment"
-        ],
-        "summary": "[POST] Booking refund collection",
-        "description": "[POST] Booking refund collection",
-        "operationId": "postBookingRefundCollection",
-        "requestBody": {
-          "content": {
-            "text/plain": {
-              "examples": {
-                "[POST] Booking refund collection": {
-                  "value": ""
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+    "security": [{ "bearerAuth": [] }]
+  }
+},
+    "/api/v1/online-booking-time/refund/{id}": {
+  "post": {
+    "tags": ["Admin POS", "Booking", "Appointment"],
+    "summary": "[POST] Booking refund collection",
+    "description": "[POST] Booking refund collection",
+    "operationId": "postBookingRefundCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID của booking cần hoàn tiền"
       }
+    ],
+    "responses": {
+      "200": { "description": "Booking refunded successfully" }
     },
+    "security": [{ "bearerAuth": [] }]
+  }
+},
     "/api/v1/bookings-setting": {
       "get": {
         "tags": [
