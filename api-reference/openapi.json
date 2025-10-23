@@ -2506,50 +2506,45 @@
         ]
       }
     },
-    "/api/v1/calendar/mKbKeorL": {
-      "put": {
-        "tags": [
-          "Admin POS",
-          "Booking",
-          "Set Calendar"
-        ],
-        "summary": "[PUT] calendar collection",
-        "description": "[PUT] calendar collection",
-        "operationId": "putCalendarCollection",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "is_active": {
-                    "type": "number",
-                    "example": 0
-                  }
-                }
-              },
-              "examples": {
-                "[PUT] calendar collection": {
-                  "value": {
-                    "is_active": 0
-                  }
-                }
+    "/api/v1/calendar/{id}": {
+  "put": {
+    "tags": ["Admin POS", "Booking", "Set Calendar"],
+    "summary": "[PUT] Calendar collection",
+    "description": "Cập nhật trạng thái hoạt động của một calendar.",
+    "operationId": "putCalendarCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID của calendar cần cập nhật"
+      }
+    ],
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "is_active": {
+                "type": "number",
+                "example": 0
               }
             }
+          },
+          "examples": {
+            "[PUT] calendar collection": {
+              "value": { "is_active": 0 }
+            }
           }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       }
     },
+    "responses": { "200": { "description": "Cập nhật thành công" } },
+    "security": [{ "bearerAuth": [] }]
+  }
+}
     "/api/v1/update-bookings-setting": {
       "post": {
         "tags": [
