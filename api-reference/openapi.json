@@ -4114,8 +4114,7 @@
     },
     "security": [{ "bearerAuth": [] }]
   }
-}
-,
+},
     "/api/v1/brands": {
       "get": {
         "tags": [
