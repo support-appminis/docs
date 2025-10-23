@@ -262,77 +262,77 @@
         ]
       }
     },
-    "/api/v1/custom-collection/8qA9dVqo": {
-      "put": {
-        "tags": [
-          "Admin POS",
-          "Custom Collection"
-        ],
-        "summary": "[PUT] Custom collection",
-        "description": "[PUT] Custom collection",
-        "operationId": "putCustomCollection",
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "banner_image": {
-                    "type": "string",
-                    "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg"
-                  },
-                  "image": {
-                    "type": "string",
-                    "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg"
-                  },
-                  "name": {
-                    "type": "string",
-                    "example": "Danh mục 2"
-                  },
-                  "parent_id": {
-                    "type": "string",
-                    "example": "7bv3gPWj"
-                  },
-                  "slug": {
-                    "type": "string",
-                    "example": "name"
-                  }
-                }
+    "/api/v1/custom-collection/{id}": {
+  "put": {
+    "tags": ["Admin POS", "Custom Collection"],
+    "summary": "[PUT] Custom collection",
+    "description": "[PUT] Custom collection",
+    "operationId": "putCustomCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID của Custom Collection cần cập nhật"
+      }
+    ],
+    "requestBody": {
+      "content": {
+        "application/x-www-form-urlencoded": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "banner_image": {
+                "type": "string",
+                "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg"
               },
-              "examples": {
-                "[PUT] Custom collection": {
-                  "value": {
-                    "banner_image": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg",
-                    "image": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg",
-                    "name": "Danh mục 2",
-                    "slug": "name"
-                  }
-                },
-                "[PUT] Custom collection with parent": {
-                  "value": {
-                    "banner_image": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg",
-                    "image": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg",
-                    "name": "Danh mục 2",
-                    "parent_id": "7bv3gPWj",
-                    "slug": "name"
-                  }
-                }
+              "image": {
+                "type": "string",
+                "example": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg"
+              },
+              "name": {
+                "type": "string",
+                "example": "Danh mục 2"
+              },
+              "parent_id": {
+                "type": "string",
+                "example": "7bv3gPWj"
+              },
+              "slug": {
+                "type": "string",
+                "example": "name"
+              }
+            }
+          },
+          "examples": {
+            "[PUT] Custom collection": {
+              "value": {
+                "banner_image": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg",
+                "image": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg",
+                "name": "Danh mục 2",
+                "slug": "name"
+              }
+            },
+            "[PUT] Custom collection with parent": {
+              "value": {
+                "banner_image": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg",
+                "image": "440cef314f679adba15d7047c47c3661_269a5b4479.jpg",
+                "name": "Danh mục 2",
+                "parent_id": "7bv3gPWj",
+                "slug": "name"
               }
             }
           }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       }
     },
+    "responses": {
+      "200": { "description": "Custom collection updated successfully" }
+    },
+    "security": [{ "bearerAuth": [] }]
+  }
+},
     "/": {
       "get": {
         "tags": [
