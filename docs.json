@@ -276,9 +276,9 @@
               {
                 "group": "Set Calendar",
                 "pages": [
-                  "api-reference/endpoint/loyalty/set-calendar/booking-setting-collection-get",
-                  "api-reference/endpoint/loyalty/set-calendar/calendar-collection-get",
-                  "api-reference/endpoint/loyalty/set-calendar/calendar-collection-create"
+                  "api-reference/endpoint/booking/set-calendar/booking-setting-collection-get",
+                  "api-reference/endpoint/booking/set-calendar/calendar-collection-get",
+                  "api-reference/endpoint/booking/set-calendar/calendar-collection-create"
                   
                 ]
               }
