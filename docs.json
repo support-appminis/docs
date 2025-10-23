@@ -282,10 +282,24 @@
           {
             "group": "Endpoint Services",
             "pages": [
-              "api-reference/endpoint/service-collection-get",
-              "api-reference/endpoint/service-collection-create",
-              "api-reference/endpoint/service-collection-update",
-              "api-reference/endpoint/service-collection-delete"
+              {
+                "group": "Category",
+                "pages": [
+                  "api-reference/endpoint/services/category/service-category-get",
+                  "api-reference/endpoint/services/category/service-category-create",
+                  "api-reference/endpoint/services/category/service-category-update",
+                  "api-reference/endpoint/services/category/service-category-delete"
+                ]
+              },
+              {
+                "group": "Service",
+                "pages": [
+                  "api-reference/endpoint/services/service/service-collection-get",
+                  "api-reference/endpoint/services/service/service-collection-create",
+                  "api-reference/endpoint/services/service/service-collection-update",
+                  "api-reference/endpoint/services/service/service-collection-delete"
+                ]
+              }
             ]
           }
         ]
