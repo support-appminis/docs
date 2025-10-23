@@ -287,7 +287,6 @@
                 "pages": [
                   "api-reference/endpoint/services/category/service-category-get",
                   "api-reference/endpoint/services/category/service-category-create",
-                  "api-reference/endpoint/services/category/service-category-update",
                   "api-reference/endpoint/services/category/service-category-delete"
                 ]
               },
