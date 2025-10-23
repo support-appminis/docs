@@ -199,10 +199,16 @@
             ]
           },
           {
-            "group": "Endpoint Category News",
+            "group": "Endpoint Auth",
             "pages": [
-              "api-reference/endpoint/news-get",
-              "api-reference/endpoint/news-create"
+              "api-reference/endpoint/login"
+            ]
+          },
+          {
+            "group": "Endpoint Custom Collection",
+            "pages": [
+              "api-reference/endpoint/custom-colection-get",
+              "api-reference/endpoint/custom-colection-create"
             ]
           },
           {
