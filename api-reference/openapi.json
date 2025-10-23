@@ -4052,59 +4052,69 @@
       }
     },
     "/api/v1/products/{id}": {
-      "put": {
-        "tags": ["Admin POS", "Products", "Product"],
-        "summary": "[PUT] Update Product",
-        "description": "Cập nhật thông tin sản phẩm theo ID.",
-        "operationId": "putProductCollection",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "string" },
-            "description": "ID sản phẩm cần cập nhật"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": { "type": "string", "example": "IPhone 17 Posman edit1" },
-                  "mrp": { "type": "number", "example": 23000000 },
-                  "description": { "type": "string", "example": "<p>đẹp quá</p>" }
-                }
+  "put": {
+    "tags": ["Admin POS", "Products", "Product"],
+    "summary": "[PUT] Update Product",
+    "description": "Cập nhật thông tin sản phẩm theo ID.",
+    "operationId": "putProductCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID sản phẩm cần cập nhật"
+      }
+    ],
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string", "example": "IPhone 17 Posman edit1" },
+              "mrp": { "type": "number", "example": 23000000 },
+              "description": { "type": "string", "example": "<p>đẹp quá</p>" }
+            }
+          },
+          "examples": {
+            "[PUT] Product collection": {
+              "value": {
+                "name": "IPhone 17 Posman edit1",
+                "mrp": 23000000,
+                "description": "<p>đẹp quá</p>"
               }
             }
           }
-        },
-        "responses": {
-          "200": { "description": "Cập nhật thành công" }
-        },
-        "security": [{ "bearerAuth": [] }]
-      },
-      "delete": {
-        "tags": ["Admin POS", "Products", "Product"],
-        "summary": "[DELETE] Product",
-        "description": "Xóa sản phẩm theo ID.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": { "type": "string" },
-            "description": "ID sản phẩm cần xóa"
-          }
-        ],
-        "responses": {
-          "200": { "description": "Xóa thành công" },
-          "404": { "description": "Không tìm thấy sản phẩm" }
-        },
-        "security": [{ "bearerAuth": [] }]
+        }
       }
     },
+    "responses": {
+      "200": { "description": "Product updated successfully" }
+    },
+    "security": [{ "bearerAuth": [] }]
+  },
+  "delete": {
+    "tags": ["Admin POS", "Products", "Product"],
+    "summary": "[DELETE] Product",
+    "description": "Xóa sản phẩm theo ID.",
+    "operationId": "deleteProductCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID sản phẩm cần xóa"
+      }
+    ],
+    "responses": {
+      "200": { "description": "Product deleted successfully" },
+      "404": { "description": "Product not found" }
+    },
+    "security": [{ "bearerAuth": [] }]
+  }
+}
     "/api/v1/custom-collection/8qA6XPbo": {
       "post": {
         "tags": [
