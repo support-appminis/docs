@@ -4054,7 +4054,7 @@
     "/api/v1/products/{id}": {
   "put": {
     "tags": ["Admin POS", "Products", "Product"],
-    "summary": "[PUT] Update Product",
+    "summary": "[PUT] Product collection",
     "description": "Cập nhật thông tin sản phẩm theo ID.",
     "operationId": "putProductCollection",
     "parameters": [
@@ -4063,26 +4063,56 @@
         "in": "path",
         "required": true,
         "schema": { "type": "string" },
-        "description": "ID sản phẩm cần cập nhật"
+        "description": "ID của sản phẩm cần cập nhật."
       }
     ],
     "requestBody": {
+      "required": true,
       "content": {
         "application/json": {
           "schema": {
             "type": "object",
             "properties": {
+              "_method": { "type": "string", "example": "PUT" },
               "name": { "type": "string", "example": "IPhone 17 Posman edit1" },
-              "mrp": { "type": "number", "example": 23000000 },
-              "description": { "type": "string", "example": "<p>đẹp quá</p>" }
+              "brand_id": { "type": "string", "example": "8Vbnvlbk" },
+              "category_id": { "type": "string", "nullable": true, "example": null },
+              "barcode_symbology": { "type": "string", "example": "CODE12823" },
+              "sales_price": { "type": "number", "example": 23000000 },
+              "purchase_price": { "type": "number", "example": 20000000 },
+              "product_type": { "type": "string", "example": "variable" },
+              "is_display": { "type": "string", "example": "active" },
+              "slug": { "type": "string", "example": "iphone-17-posman-edit1" },
+              "image": { "type": "string", "example": "honnor_xanh.png" },
+              "image_url": {
+                "type": "string",
+                "example": "https://aimini-upload.sgp1.cdn.digitaloceanspaces.com/products/honnor_xanh.png"
+              },
+              "warehouse_id": { "type": "string", "example": "KbKe32rL" },
+              "tags": {
+                "type": "array",
+                "items": { "type": "string" },
+                "example": ["1"]
+              }
             }
           },
           "examples": {
             "[PUT] Product collection": {
               "value": {
+                "_method": "PUT",
                 "name": "IPhone 17 Posman edit1",
-                "mrp": 23000000,
-                "description": "<p>đẹp quá</p>"
+                "brand_id": "8Vbnvlbk",
+                "category_id": null,
+                "barcode_symbology": "CODE12823",
+                "sales_price": 23000000,
+                "purchase_price": 20000000,
+                "product_type": "variable",
+                "is_display": "active",
+                "slug": "iphone-17-posman-edit1",
+                "image": "honnor_xanh.png",
+                "image_url": "https://aimini-upload.sgp1.cdn.digitaloceanspaces.com/products/honnor_xanh.png",
+                "warehouse_id": "KbKe32rL",
+                "tags": ["1"]
               }
             }
           }
@@ -4090,13 +4120,13 @@
       }
     },
     "responses": {
-      "200": { "description": "Product updated successfully" }
+      "200": { "description": "Cập nhật sản phẩm thành công." }
     },
     "security": [{ "bearerAuth": [] }]
   },
   "delete": {
     "tags": ["Admin POS", "Products", "Product"],
-    "summary": "[DELETE] Product",
+    "summary": "[DELETE] Product collection",
     "description": "Xóa sản phẩm theo ID.",
     "operationId": "deleteProductCollection",
     "parameters": [
@@ -4105,12 +4135,13 @@
         "in": "path",
         "required": true,
         "schema": { "type": "string" },
-        "description": "ID sản phẩm cần xóa"
+        "description": "ID của sản phẩm cần xóa."
       }
     ],
     "responses": {
-      "200": { "description": "Product deleted successfully" },
-      "404": { "description": "Product not found" }
+      "200": { "description": "Xóa sản phẩm thành công." },
+      "404": { "description": "Không tìm thấy sản phẩm." },
+      "401": { "description": "Không có quyền truy cập." }
     },
     "security": [{ "bearerAuth": [] }]
   }
