@@ -1778,39 +1778,29 @@
         ]
       }
     },
-    "/api/v1/missions/Jlq1PnrR": {
-      "delete": {
-        "tags": [
-          "Admin POS",
-          "Loyalty",
-          "Manage Point"
-        ],
-        "summary": "[DELETE] Point collection",
-        "description": "[DELETE] Point collection",
-        "operationId": "deletePointCollection",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "examples": {
-                "[DELETE] Point collection": {
-                  "value": ""
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+    "/api/v1/missions/{id}": {
+  "delete": {
+    "tags": ["Admin POS", "Loyalty", "Manage Point"],
+    "summary": "[DELETE] Point collection",
+    "description": "[DELETE] Point collection",
+    "operationId": "deletePointCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID của nhiệm vụ hoặc điểm cần xóa"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Point collection deleted successfully"
       }
     },
+    "security": [{ "bearerAuth": [] }]
+  }
+},
     "/api/v1/booking-items": {
       "get": {
         "tags": [
