@@ -252,6 +252,30 @@
                 ]
               }
             ]
+          },
+                    {
+            "group": "Endpoint Booking",
+            "pages": [
+              {
+                "group": "Appointment",
+                "pages": [
+                  "api-reference/endpoint/booking/appointment/booking-items-get",
+                  "api-reference/endpoint/booking/appointment/bookings-get"
+                ]
+              },
+              {
+                "group": "Bill",
+                "pages": [
+
+                ]
+              },
+              {
+                "group": "Set Calendar",
+                "pages": [
+                  "api-reference/endpoint/loyalty/manage-membership/membership-rank-get"
+                ]
+              }
+            ]
           }
         ]
       }
