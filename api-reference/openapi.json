@@ -2606,432 +2606,128 @@
         ]
       }
     },
-    "/api/v1/companies/dbemNmbV": {
-      "put": {
-        "tags": [
-          "Admin POS",
-          "Booking",
-          "Set Calendar"
-        ],
-        "summary": "[PUT] Company Collection",
-        "description": "[PUT] Company Collection",
-        "operationId": "putCompanyCollection",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "address": {
-                    "type": "string",
-                    "example": "13 Đường số 7A, Phường An Phú, Thủ Đức, TP.HCM"
-                  },
-                  "app_debug": {
-                    "type": "number",
-                    "example": 0
-                  },
-                  "auto_detect_timezone": {
-                    "type": "number",
-                    "example": 1
-                  },
-                  "currency_id": {
-                    "type": "string",
-                    "example": "eJWGLOro"
-                  },
-                  "dark_logo": {
-                    "nullable": true,
-                    "example": null
-                  },
-                  "dark_logo_url": {
-                    "type": "string",
-                    "example": "http://127.0.0.1:8000/images/dark.png"
-                  },
-                  "date_format": {
-                    "type": "string",
-                    "example": "DD-MM-YYYY"
-                  },
-                  "email": {
-                    "type": "string",
-                    "example": "aimini_company40162@gmail.com"
-                  },
-                  "lang_id": {
-                    "nullable": true,
-                    "example": null
-                  },
-                  "left_sidebar_theme": {
-                    "type": "string",
-                    "example": "dark"
-                  },
-                  "light_logo": {
-                    "nullable": true,
-                    "example": null
-                  },
-                  "light_logo_url": {
-                    "type": "string",
-                    "example": "http://127.0.0.1:8000/images/logo_aimini.png"
-                  },
-                  "login_image": {
-                    "nullable": true,
-                    "example": null
-                  },
-                  "login_image_url": {
-                    "type": "string",
-                    "example": "http://127.0.0.1:8000/images/login_background.svg"
-                  },
-                  "name": {
-                    "type": "string",
-                    "example": "Aimini 40162"
-                  },
-                  "phone": {
-                    "type": "string",
-                    "example": "086532133"
-                  },
-                  "primary_color": {
-                    "type": "string",
-                    "example": "#1890ff"
-                  },
-                  "rtl": {
-                    "type": "number",
-                    "example": 0
-                  },
-                  "short_name": {
-                    "type": "string",
-                    "example": "Aimini Develop Test V1245"
-                  },
-                  "shortcut_menus": {
-                    "type": "string",
-                    "example": "top_bottom"
-                  },
-                  "small_dark_logo": {
-                    "nullable": true,
-                    "example": null
-                  },
-                  "small_dark_logo_url": {
-                    "type": "string",
-                    "example": "http://127.0.0.1:8000/images/small_dark.png"
-                  },
-                  "small_light_logo": {
-                    "nullable": true,
-                    "example": null
-                  },
-                  "small_light_logo_url": {
-                    "type": "string",
-                    "example": "http://127.0.0.1:8000/images/logo_aimini_circle.png"
-                  },
-                  "time_booking_after": {
-                    "nullable": true,
-                    "example": null
-                  },
-                  "time_format": {
-                    "type": "string",
-                    "example": "hh:mm a"
-                  },
-                  "timezone": {
-                    "type": "string",
-                    "example": "Asia/Ho_Chi_Minh"
-                  },
-                  "update_app_notification": {
-                    "type": "number",
-                    "example": 1
-                  },
-                  "warehouse_id": {
-                    "type": "string",
-                    "example": "KbKe32rL"
-                  }
-                }
-              },
-              "examples": {
-                "[PUT] Company Collection": {
-                  "value": {
-                    "address": "13 Đường số 7A, Phường An Phú, Thủ Đức, TP.HCM",
-                    "app_debug": 0,
-                    "auto_detect_timezone": 1,
-                    "currency_id": "eJWGLOro",
-                    "dark_logo": null,
-                    "dark_logo_url": "http://127.0.0.1:8000/images/dark.png",
-                    "date_format": "DD-MM-YYYY",
-                    "email": "aimini_company40162@gmail.com",
-                    "lang_id": null,
-                    "left_sidebar_theme": "dark",
-                    "light_logo": null,
-                    "light_logo_url": "http://127.0.0.1:8000/images/logo_aimini.png",
-                    "login_image": null,
-                    "login_image_url": "http://127.0.0.1:8000/images/login_background.svg",
-                    "name": "Aimini 40162",
-                    "phone": "086532133",
-                    "primary_color": "#1890ff",
-                    "rtl": 0,
-                    "short_name": "Aimini Develop Test V1245",
-                    "shortcut_menus": "top_bottom",
-                    "small_dark_logo": null,
-                    "small_dark_logo_url": "http://127.0.0.1:8000/images/small_dark.png",
-                    "small_light_logo": null,
-                    "small_light_logo_url": "http://127.0.0.1:8000/images/logo_aimini_circle.png",
-                    "time_booking_after": null,
-                    "time_format": "hh:mm a",
-                    "timezone": "Asia/Ho_Chi_Minh",
-                    "update_app_notification": 1,
-                    "warehouse_id": "KbKe32rL"
+    "/api/v1/companies/{id}": {
+  "put": {
+    "tags": ["Admin POS", "Booking", "Set Calendar"],
+    "summary": "[PUT] Company Collection",
+    "description": "Cập nhật thông tin công ty và thiết lập cấu hình hệ thống.",
+    "operationId": "putCompanyCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID của công ty cần cập nhật."
+      }
+    ],
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string", "example": "Aimini 40162" },
+              "short_name": { "type": "string", "example": "Aimini Develop Test V1245" },
+              "address": { "type": "string", "example": "13 Đường số 7A, Phường An Phú, Thủ Đức, TP.HCM" },
+              "email": { "type": "string", "example": "aimini_company40162@gmail.com" },
+              "phone": { "type": "string", "example": "086532133" },
+              "timezone": { "type": "string", "example": "Asia/Ho_Chi_Minh" },
+              "date_format": { "type": "string", "example": "DD-MM-YYYY" },
+              "time_format": { "type": "string", "example": "hh:mm a" },
+              "primary_color": { "type": "string", "example": "#1890ff" },
+              "warehouse_id": { "type": "string", "example": "KbKe32rL" }
+            }
+          },
+          "examples": {
+            "[PUT] Company Collection": {
+              "value": {
+                "address": "13 Đường số 7A, Phường An Phú, Thủ Đức, TP.HCM",
+                "app_debug": 0,
+                "auto_detect_timezone": 1,
+                "currency_id": "eJWGLOro",
+                "date_format": "DD-MM-YYYY",
+                "email": "aimini_company40162@gmail.com",
+                "left_sidebar_theme": "dark",
+                "name": "Aimini 40162",
+                "phone": "086532133",
+                "primary_color": "#1890ff",
+                "short_name": "Aimini Develop Test V1245",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "warehouse_id": "KbKe32rL"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": { "description": "Company settings updated successfully" }
+    },
+    "security": [{ "bearerAuth": [] }]
+  }
+},
+    "/api/v1/calendar/{id}": {
+  "put": {
+    "tags": ["Admin POS", "Booking", "Set Calendar"],
+    "summary": "[PUT] Calendar Collection",
+    "description": "Cập nhật khung giờ hoạt động cho lịch đặt hẹn.",
+    "operationId": "putCalendarCollection",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": { "type": "string" },
+        "description": "ID của calendar cần cập nhật khung giờ."
+      }
+    ],
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "is_active": { "type": "number", "example": 1 },
+              "time": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "quantity": { "type": "number", "example": 10 },
+                      "time_end": { "type": "string", "example": "630" },
+                      "time_start": { "type": "string", "example": "09:00" }
+                    }
                   }
                 }
               }
             }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
-    "/api/v1/calendar/g0W4ydrJ": {
-      "put": {
-        "tags": [
-          "Admin POS",
-          "Booking",
-          "Set Calendar"
-        ],
-        "summary": "[PUT] Calendar Collection",
-        "description": "[PUT] Calendar Collection",
-        "operationId": "putCalendarCollection1",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "is_active": {
-                    "type": "number",
-                    "example": 1
-                  },
-                  "time": {
-                    "type": "array",
-                    "items": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "quantity": {
-                            "type": "number",
-                            "example": 10
-                          },
-                          "time_end": {
-                            "type": "string",
-                            "example": 630
-                          },
-                          "time_start": {
-                            "type": "string",
-                            "example": "09:00"
-                          }
-                        }
-                      },
-                      "example": [
-                        {
-                          "quantity": 10,
-                          "time_end": 630,
-                          "time_start": "09:00"
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 719,
-                          "time_start": 660
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 720,
-                          "time_start": 719
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 780,
-                          "time_start": 720
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 840,
-                          "time_start": 780
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 900,
-                          "time_start": 840
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 960,
-                          "time_start": 900
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 1020,
-                          "time_start": 960
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 1080,
-                          "time_start": 1020
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 1140,
-                          "time_start": 1080
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 1439,
-                          "time_start": 1260
-                        }
-                      ]
-                    },
-                    "example": [
-                      [
-                        {
-                          "quantity": 10,
-                          "time_end": 630,
-                          "time_start": "09:00"
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 719,
-                          "time_start": 660
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 720,
-                          "time_start": 719
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 780,
-                          "time_start": 720
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 840,
-                          "time_start": 780
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 900,
-                          "time_start": 840
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 960,
-                          "time_start": 900
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 1020,
-                          "time_start": 960
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 1080,
-                          "time_start": 1020
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 1140,
-                          "time_start": 1080
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 1439,
-                          "time_start": 1260
-                        }
-                      ]
-                    ]
-                  }
-                }
-              },
-              "examples": {
-                "[PUT] Calendar Collection": {
-                  "value": {
-                    "is_active": 1,
-                    "time": [
-                      [
-                        {
-                          "quantity": 10,
-                          "time_end": 630,
-                          "time_start": "09:00"
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 719,
-                          "time_start": 660
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 720,
-                          "time_start": 719
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 780,
-                          "time_start": 720
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 840,
-                          "time_start": 780
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 900,
-                          "time_start": 840
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 960,
-                          "time_start": 900
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 1020,
-                          "time_start": 960
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 1080,
-                          "time_start": 1020
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 1140,
-                          "time_start": 1080
-                        },
-                        {
-                          "quantity": 1,
-                          "time_end": 1439,
-                          "time_start": 1260
-                        }
-                      ]
-                    ]
-                  }
-                }
+          },
+          "examples": {
+            "[PUT] Calendar Collection": {
+              "value": {
+                "is_active": 1,
+                "time": [
+                  [
+                    { "quantity": 10, "time_end": 630, "time_start": "09:00" },
+                    { "quantity": 1, "time_end": 780, "time_start": 720 },
+                    { "quantity": 1, "time_end": 900, "time_start": 840 }
+                  ]
+                ]
               }
             }
           }
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       }
     },
+    "responses": {
+      "200": { "description": "Calendar updated successfully" }
+    },
+    "security": [{ "bearerAuth": [] }]
+  }
+},
     "/api/v1/service-categories": {
       "get": {
         "tags": [
