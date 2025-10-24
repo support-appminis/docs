@@ -123,14 +123,6 @@
             ]
           },
           {
-            "group": "Quản lý booking",
-            "pages": [
-              "booking-management/booking-management",
-              "booking-management/service-management",
-              "booking-management/schedule-setting"
-            ]
-          },
-          {
             "group": "Quản lý người dùng",
             "pages": [
               "users-management/customers-management",
@@ -169,8 +161,7 @@
               "settings/company-profile-setting",
               "settings/currency-setting",
               "settings/delivery-setting",
-              "settings/integration",
-              "settings/miniapp-setting"
+              "settings/integration"
             ]
           },
           {
