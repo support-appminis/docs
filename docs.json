@@ -99,13 +99,6 @@
         "tab": "App Dashboard",
         "groups": [
           {
-            "group": "Getting started",
-            "pages": [
-              "quickstart",
-              "development"
-            ]
-          },
-          {
             "group": "Quản lý bán hàng",
             "pages": [
               {
@@ -162,153 +155,10 @@
               "settings/delivery-setting",
               "settings/integration"
             ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint Auth",
-            "pages": [
-              "api-reference/endpoint/login"
-            ]
-          },
-          {
-            "group": "Category News",
-            "pages": [
-              "api-reference/endpoint/news-category-get",
-              "api-reference/endpoint/news-category-create"
-            ]
-          },
-          {
-            "group": "Endpoint Custom Collection",
-            "pages": [
-              "api-reference/endpoint/custom-collection-get",
-              "api-reference/endpoint/custom-collection-create",
-              "api-reference/endpoint/custom-collection-update"
-            ]
-          },
-          {
-            "group": "Endpoint Loyalty",
-            "pages": [
-              {
-                "group": "Manager User",
-                "pages": [
-                  "api-reference/endpoint/loyalty/manager-user/user-collection-get"
-                ]
-              },
-              {
-                "group": "List Gifts",
-                "pages": [
-                  "api-reference/endpoint/loyalty/list-gifts/redeem-voucher-get",
-                  "api-reference/endpoint/loyalty/list-gifts/redeem-voucher-create",
-                  "api-reference/endpoint/loyalty/list-gifts/redeem-voucher-update",
-                  "api-reference/endpoint/loyalty/list-gifts/redeem-voucher-delete",
-                  "api-reference/endpoint/loyalty/list-gifts/voucher-collection-get",
-                  "api-reference/endpoint/loyalty/list-gifts/voucher-collection-create"
-                ]
-              },
-              {
-                "group": "Manage Membership",
-                "pages": [
-                  "api-reference/endpoint/loyalty/manage-membership/membership-rank-get",
-                  "api-reference/endpoint/loyalty/manage-membership/membership-rank-create",
-                  "api-reference/endpoint/loyalty/manage-membership/membership-rank-update",
-                  "api-reference/endpoint/loyalty/manage-membership/membership-rank-delete"
-                ]
-              },
-              {
-                "group": "Manage Point",
-                "pages": [
-                  "api-reference/endpoint/loyalty/manage-point/mission-collection-get",
-                  "api-reference/endpoint/loyalty/manage-point/mission-collection-create",
-                  "api-reference/endpoint/loyalty/manage-point/point-conversion-create",
-                  "api-reference/endpoint/loyalty/manage-point/mission-collection-delete"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Endpoint Booking",
-            "pages": [
-              {
-                "group": "Appointment",
-                "pages": [
-                  "api-reference/endpoint/booking/appointment/booking-item-collection-get",
-                  "api-reference/endpoint/booking/appointment/booking-collection-get",
-                  "api-reference/endpoint/booking/appointment/booking-collection-create",
-                  "api-reference/endpoint/booking/appointment/booking-confirm-collection-create",
-                  "api-reference/endpoint/booking/appointment/booking-refund-collection-create",
-                  "api-reference/endpoint/booking/appointment/booking-cancel-collection-create"
-                ]
-              },
-              {
-                "group": "Set Calendar",
-                "pages": [
-                  "api-reference/endpoint/booking/set-calendar/booking-setting-collection-get",
-                  "api-reference/endpoint/booking/set-calendar/calendar-collection-get",
-                  "api-reference/endpoint/booking/set-calendar/calendar-collection-create",
-                  "api-reference/endpoint/booking/set-calendar/calendar-collection-update",
-                  "api-reference/endpoint/booking/set-calendar/booking-setting-collection-create"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Endpoint Services",
-            "pages": [
-              {
-                "group": "Category",
-                "pages": [
-                  "api-reference/endpoint/services/category/service-category-get",
-                  "api-reference/endpoint/services/category/service-category-create",
-                  "api-reference/endpoint/services/category/service-category-delete"
-                ]
-              },
-              {
-                "group": "Service",
-                "pages": [
-                  "api-reference/endpoint/services/service/service-collection-get",
-                  "api-reference/endpoint/services/service/service-collection-create",
-                  "api-reference/endpoint/services/service/service-collection-update",
-                  "api-reference/endpoint/services/service/service-collection-delete"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Endpoint Products",
-            "pages": [
-              {
-                "group": "Product",
-                "pages": [
-                  "api-reference/endpoint/products/product/product-collection-get",
-                  "api-reference/endpoint/products/product/product-collection-create",
-                  "api-reference/endpoint/products/product/product-collection-update",
-                  "api-reference/endpoint/products/product/product-collection-delete"
-                  
-                ]
-              }
-
-            ]
           }
         ]
       }
+     
     ],
     "global": {
       "anchors": [
