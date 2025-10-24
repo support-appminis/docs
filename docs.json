@@ -118,8 +118,7 @@
                   "sale-management/product-management/review-management"
                 ]
               },
-              "sale-management/order-management",
-              "sale-management/inventory-management"
+              "sale-management/order-management"
             ]
           },
           {
