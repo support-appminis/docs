@@ -1,5 +1,120 @@
 ---
 title: "Bookings"
-description: "Description of your new file."
+description: "Hướng dẫn quản lý lịch hẹn, hóa đơn trong hệ thống"
 icon: "calendar-days"
 ---
+
+## **Lịch hẹn**
+
+Tính năng **Lịch hẹn** cho phép người dùng tạo, quản lý và theo dõi lịch hẹn của khách hàng.\
+Hệ thống được liên kết trực tiếp với hóa đơn để đảm bảo tính chính xác trong quá trình quản lý.
+
+---
+
+### **Thêm lịch hẹn**
+
+Truy cập **Booking → Lịch hẹn → Thêm**\
+→ Nhập thông tin: Người dùng, Số hóa đơn, Dịch vụ, Nhân viên, Thời gian, Số lượng khách, Số điện thoại và Ghi chú.\
+→ Khi chọn Người dùng, hệ thống tự động hiển thị danh sách hóa đơn mà khách hàng đó đang có.\
+→ Khi chọn Số hóa đơn, dịch vụ tương ứng sẽ tự động hiển thị theo hóa đơn đó.\
+→ Nhấn **Tạo** để hoàn tất.
+
+> **Lưu ý:**\
+> Muốn thêm lịch hẹn, khách hàng phải có hóa đơn hợp lệ được tạo từ phần **Đặt dịch vụ**.\
+> Hóa đơn là cơ sở để xác định dịch vụ, số buổi, và thông tin thanh toán.
+
+<Frame caption="Thêm lịch hẹn">
+  <img
+    src=""
+    alt="Giao diện thêm lịch hẹn"
+    style={{ borderRadius:"0.5rem" }}
+  />
+</Frame>
+
+---
+
+### **Xem chi tiết lịch hẹn**
+
+Truy cập **Booking → Lịch hẹn** → Nhấn vào biểu tượng 👁 để xem chi tiết lịch hẹn.\
+→ Giao diện hiển thị: Mã lịch hẹn, Mã hóa đơn, Khách hàng, Dịch vụ, Ngày giờ hẹn, Số buổi còn lại và Ghi chú.
+
+<Frame caption="Chi tiết lịch hẹn">
+  <img
+    src=""
+    alt="Màn hình chi tiết lịch hẹn"
+    style={{ borderRadius:"0.5rem" }}
+  />
+</Frame>
+
+---
+
+### **Cập nhật trạng thái lịch hẹn**
+
+Trong danh sách Lịch hẹn, người dùng có thể thay đổi trạng thái bằng các nút tương ứng:
+
+- ✅ **Xác nhận lịch**
+- 🔁 **Thay đổi lịch hẹn**
+- 🛍 **Hoàn thành** khi dịch vụ đã được thực hiện
+- ❌ **Hủy lịch** khi khách báo hủy hoặc không đến
+
+Khi hoàn thành lịch hẹn, hệ thống sẽ tự động trừ số buổi còn lại nếu dịch vụ thuộc dạng liệu trình.
+
+> Ví dụ: Khách hàng có 10 buổi liệu trình, sau khi hoàn thành 1 buổi hệ thống sẽ cập nhật còn 9 buổi.\
+> Với dịch vụ chỉ có 1 buổi, sau khi hoàn thành hệ thống sẽ tự động kết thúc liệu trình.
+
+<Frame caption="Trạng thái lịch hẹn">
+  <img
+    src=""
+    alt="Các trạng thái của lịch hẹn"
+    style={{ borderRadius:"0.5rem" }}
+  />
+</Frame>
+
+---
+
+## **Hóa đơn**
+
+Tính năng **Hóa đơn** giúp người dùng theo dõi toàn bộ thông tin về các đơn đặt dịch vụ của khách hàng.
+
+---
+
+### **Xem danh sách hóa đơn**
+
+Truy cập **Booking → Hóa đơn** để xem danh sách các hóa đơn được sinh ra từ quá trình đặt dịch vụ.\
+Danh sách hiển thị các thông tin:
+
+- Số hóa đơn
+- Loại booking
+- Ngày đặt
+- Khách hàng
+- Cửa hàng
+- Tổng tiền
+- Trạng thái thanh toán
+
+<Frame caption="Danh sách hóa đơn">
+  <img
+    src=""
+    alt="Danh sách hóa đơn"
+    style={{ borderRadius:"0.5rem" }}
+  />
+</Frame>
+
+---
+
+### **Lọc và tìm kiếm hóa đơn**
+
+Người dùng có thể sử dụng ô tìm kiếm hoặc lọc theo trạng thái:
+
+- Đã thanh toán / Chưa thanh toán / Đã hủy / Hoàn tiền\
+  Có thể lọc theo khoảng thời gian hoặc xuất danh sách ra file Excel bằng biểu tượng tệp.
+
+<Frame caption="Bộ lọc và tìm kiếm hóa đơn">
+  <img
+    src=""
+    alt="Bộ lọc tìm kiếm hóa đơn"
+    style={{ borderRadius:"0.5rem" }}
+  />
+</Frame>
+
+---
+
