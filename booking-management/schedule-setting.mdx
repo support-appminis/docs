@@ -1,55 +1,266 @@
 ---
-title: 'Cài đặt booking'
-description: Hướng dẫn thiết lập lịch trong hệ thống.'
-icon: "calendar-pen"
+title: 'Dịch vụ'
+description: 'Hướng dẫn quản lý danh mục và dịch vụ trong hệ thống.'
+icon: "receipt"
 ---
 
-## **Thiết lập lịch**
+## **Danh mục dịch vụ**
 
-Tính năng **Thiết lập lịch** giúp người dùng cài đặt thời gian làm việc, quy tắc hủy lịch và giới hạn số lượng khách trong từng khung giờ.
+Tính năng **Danh mục dịch vụ** giúp người dùng phân loại các nhóm dịch vụ để dễ dàng quản lý, sắp xếp và tìm kiếm.
 
 ---
 
-### **Cấu hình thời gian làm việc**
+### **Thêm danh mục**
 
-Truy cập **Booking → Thiết lập lịch**\
-→ Bật/tắt các ngày trong tuần mà cửa hàng hoạt động.\
-→ Nhấn vào biểu tượng ✏ để chỉnh sửa khung giờ làm việc của từng ngày.
+Truy cập **Quản lý dịch vụ → Danh mục dịch vụ → Thêm danh mục**  
+→ Nhập thông tin: **Tên**, **Slug**, chọn **Danh mục cha** (nếu có).  
+→ Tải lên **Logo** và **Banner danh mục** (tối đa 2MB mỗi ảnh).  
+→ Nhấn **Tạo** để hoàn tất thêm danh mục.
 
-<Frame caption="Cấu hình thời gian làm việc">
+<Frame caption="Thêm danh mục dịch vụ">
   <img
-    src=""
-    alt="Giao diện cấu hình thời gian làm việc"
-    style={{ borderRadius:"0.5rem" }}
+    src="https://aimini-upload.sgp1.digitaloceanspaces.com/image716_96813518de.png"
+    alt="Giao diện thêm danh mục dịch vụ"
+    style={{
+      borderRadius: "0.5rem",
+      width: "100%",
+      height: "auto",
+      objectFit: "cover",
+      objectPosition: "0 -65px" 
+    }}
   />
 </Frame>
 
 ---
 
-### **Thiết lập quy tắc hủy và thanh toán**
+### **Chỉnh sửa danh mục**
 
-→ Nhập **Thời gian cho phép hủy** (tính theo giờ) trước khi lịch diễn ra.\
-→ Chọn **Tỷ lệ thanh toán trước (%)** nếu cửa hàng yêu cầu khách thanh toán trước một phần khi đặt lịch.
+Truy cập **Quản lý dịch vụ → Danh mục dịch vụ**  
+→ Nhấn vào biểu tượng ✏ để chỉnh sửa danh mục mong muốn.  
+→ Cập nhật các trường cần thiết, sau đó nhấn **Cập nhật** để lưu thay đổi.
 
-<Frame caption="Thiết lập quy tắc hủy và thanh toán">
+<Frame caption="Chỉnh sửa danh mục dịch vụ">
   <img
-    src=""
-    alt="Màn hình thiết lập quy tắc hủy và thanh toán"
-    style={{ borderRadius:"0.5rem" }}
+    src="https://aimini-upload.sgp1.digitaloceanspaces.com/image717_eb825774ce.png"
+    alt="Màn hình chỉnh sửa danh mục dịch vụ"
+    style={{
+      borderRadius: "0.5rem",
+      width: "100%",
+      height: "auto",
+      objectFit: "cover",
+      objectPosition: "0 -65px" 
+    }}
   />
 </Frame>
 
 ---
 
-### **Giới hạn số lượng khách trong khung giờ**
+### **Xóa danh mục**
 
-→ Nhập **số lượng tối đa khách hàng** có thể đặt trong một khung giờ.\
-→ Hệ thống sẽ không cho phép thêm lịch vượt quá giới hạn này.
+Trong danh sách danh mục dịch vụ, nhấn vào biểu tượng 🗑 để xóa danh mục không còn sử dụng.  
+Hệ thống sẽ hiển thị cảnh báo xác nhận trước khi thực hiện.
 
-<Frame caption="Giới hạn số lượng khách trong khung giờ">
+<Frame caption="Xóa danh mục dịch vụ">
   <img
-    src=""
-    alt="Thiết lập giới hạn khách hàng trong khung giờ"
-    style={{ borderRadius:"0.5rem" }}
+    src="https://aimini-upload.sgp1.digitaloceanspaces.com/image718_72e1e649e3.png"
+    alt="Màn hình xác nhận xóa danh mục dịch vụ"
+    style={{
+      borderRadius: "0.5rem",
+      width: "100%",
+      height: "auto",
+      objectFit: "cover",
+      objectPosition: "0 -65px" 
+    }}
   />
 </Frame>
+
+---
+
+## **Dịch vụ**
+
+Phần **Dịch vụ** cho phép người dùng thêm mới, chỉnh sửa, quản lý và nhập dữ liệu dịch vụ hàng loạt từ file Excel.  
+Tính năng này giúp tiết kiệm thời gian khi có nhiều dịch vụ cần cập nhật cùng lúc.
+
+---
+
+### **Thêm dịch vụ**
+
+Truy cập **Quản lý dịch vụ → Dịch vụ → Thêm**  
+→ Tải lên **hình ảnh hoặc video minh họa** (tối đa 2MB).  
+→ Nhập thông tin: **Cửa hàng**, **Danh mục**, **Tên**, **Mã hàng hóa**, **Slug**, **Giá bán**, **Thời lượng**, **Đơn vị tính**.  
+→ Nhấn **Tạo** để hoàn tất thêm dịch vụ mới.
+
+<Frame caption="Thêm dịch vụ mới">
+  <img
+    src="https://aimini-upload.sgp1.digitaloceanspaces.com/image719_f20cdba72a.png"
+    alt="Giao diện thêm dịch vụ mới"
+    style={{
+      borderRadius: "0.5rem",
+      width: "100%",
+      height: "auto",
+      objectFit: "cover",
+      objectPosition: "0 -65px" 
+    }}
+  />
+</Frame>
+<Frame caption="">
+  <img
+    src="https://aimini-upload.sgp1.digitaloceanspaces.com/image720_008e848bdd.png"
+    alt="Giao diện thêm dịch vụ mới"
+    style={{
+      borderRadius: "0.5rem",
+      width: "100%",
+      height: "auto",
+      objectFit: "cover",
+      objectPosition: "0 -65px" 
+    }}
+  />
+</Frame>
+<Frame caption="">
+  <img
+    src="https://aimini-upload.sgp1.digitaloceanspaces.com/image721_55adce873d.png"
+    alt="Giao diện thêm dịch vụ mới"
+    style={{
+      borderRadius: "0.5rem",
+      width: "100%",
+      height: "auto",
+      objectFit: "cover",
+      objectPosition: "0 -65px" 
+    }}
+  />
+</Frame>
+
+---
+
+### **Nhập Excel dịch vụ**
+
+Tính năng **Nhập Excel dịch vụ** cho phép tải dữ liệu hàng loạt từ file mẫu CSV.
+
+→ Chọn **Nhập Excel dịch vụ** → Tải tệp mẫu CSV bằng tùy chọn **Tải xuống tệp csv mẫu**.  
+→ Điền thông tin vào mẫu, sau đó tải lại lên hệ thống.  
+→ Nhấn **Nhập vào** để thêm toàn bộ dữ liệu dịch vụ.
+
+<Frame caption="Nhập Excel dịch vụ hàng loạt">
+  <img
+    src="https://aimini-upload.sgp1.digitaloceanspaces.com/image722_ade150262b.png"
+    alt="Giao diện nhập Excel dịch vụ"
+    style={{
+      borderRadius: "0.5rem",
+      width: "100%",
+      height: "auto",
+      objectFit: "cover",
+      objectPosition: "0 -65px" 
+    }}
+  />
+</Frame>
+
+---
+
+### **Danh sách dịch vụ**
+
+Trong danh sách dịch vụ, người dùng có thể xem nhanh các thông tin sau:
+
+- **Tên dịch vụ**  
+- **Cửa hàng**  
+- **Danh mục**  
+- **Giá bán**  
+- **Thời lượng**  
+- **Trạng thái hoạt động**
+
+Sử dụng **nút công tắc** để bật/tắt trạng thái hoạt động của từng dịch vụ.
+
+<Frame caption="Danh sách dịch vụ">
+  <img
+    src="https://aimini-upload.sgp1.digitaloceanspaces.com/image723_796f92be8c.png"
+    alt="Giao diện danh sách dịch vụ"
+    style={{
+      borderRadius: "0.5rem",
+      width: "100%",
+      height: "auto",
+      objectFit: "cover",
+      objectPosition: "0 -65px" 
+    }}
+  />
+</Frame>
+
+---
+
+### **Xem chi tiết dịch vụ**
+
+Truy cập **Quản lý dịch vụ → Dịch vụ**  
+→ Nhấn vào biểu tượng 👁 để xem chi tiết dịch vụ.  
+→ Giao diện chi tiết hiển thị toàn bộ thông tin đã cấu hình:  
+**Cửa hàng**, **Danh mục**, **Đơn vị tính**, **Giá**, **Thời lượng**, **Hình ảnh**,...
+
+<Frame caption="Chi tiết dịch vụ">
+  <img
+    src="https://aimini-upload.sgp1.digitaloceanspaces.com/image724_dbdc2344a7.png"
+    alt="Màn hình chi tiết dịch vụ"
+    style={{
+      borderRadius: "0.5rem",
+      width: "100%",
+      height: "auto",
+      objectFit: "cover",
+      objectPosition: "0 -65px" 
+    }}
+  />
+</Frame>
+
+---
+
+### **Chỉnh sửa dịch vụ**
+
+Truy cập **Quản lý dịch vụ → Dịch vụ**  
+→ Nhấn biểu tượng ✏ để mở form chỉnh sửa.  
+→ Cập nhật thông tin như:  
+**Tên dịch vụ**, **Mã hàng hóa**, **Slug**, **Giá bán**, **Thời lượng**, **Đơn vị tính**,...  
+→ Nhấn **Cập nhật** để lưu thay đổi.
+
+<Frame caption="Chỉnh sửa thông tin dịch vụ">
+  <img
+    src="https://aimini-upload.sgp1.digitaloceanspaces.com/image726_3bbed1d678.png"
+    alt="Form chỉnh sửa dịch vụ"
+    style={{
+      borderRadius: "0.5rem",
+      width: "100%",
+      height: "auto",
+      objectFit: "cover",
+      objectPosition: "0 -65px" 
+    }}
+  />
+</Frame>
+<Frame caption="Chỉnh sửa thông tin dịch vụ">
+  <img
+    src="https://aimini-upload.sgp1.digitaloceanspaces.com/image727_fca89e2821.png"
+    alt="Form chỉnh sửa dịch vụ"
+    style={{
+      borderRadius: "0.5rem",
+      width: "100%",
+      height: "auto",
+      objectFit: "cover",
+      objectPosition: "0 -65px" 
+    }}
+  />
+</Frame>
+---
+
+### **Xóa dịch vụ**
+
+Truy cập **Quản lý dịch vụ → Dịch vụ**  
+→ Nhấn biểu tượng 🗑 để xóa dịch vụ khỏi danh sách.  
+Hệ thống sẽ hiển thị thông báo xác nhận trước khi xóa để đảm bảo an toàn dữ liệu.
+
+<Frame caption="Xóa dịch vụ">
+  <img
+    src="https://aimini-upload.sgp1.digitaloceanspaces.com/image728_50e450415b.png"
+    alt="Xóa dịch vụ khỏi danh sách"
+    style={{
+      borderRadius: "0.5rem",
+      width: "100%",
+      height: "auto",
+      objectFit: "cover",
+      objectPosition: "0 -65px" 
+    }}
+  />
+</Frame>
+
